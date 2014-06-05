@@ -11,7 +11,7 @@ module Slack
     end
 
     def method_missing(action, *args)
-      get(action.id2name.gsub("_", "."), *args)
+      post(action.id2name.gsub("_", "."), *args)
     end
   end
 end
