@@ -1,4 +1,5 @@
 # Slack
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aki017/slack-ruby-gem?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A Ruby wrapper for the Slack API
 
