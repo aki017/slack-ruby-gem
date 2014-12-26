@@ -9,6 +9,10 @@ if s.token == ''
 end
 
 FAILING_ERRORS = [
+  # this is really the error we want to test to
+  "unknown_method",
+  # the others are auth errors which make the test failing because of
+  # a misconfiguration, not a code error.
   "restricted_action",
   "not_authed",
   "invalid_auth",
