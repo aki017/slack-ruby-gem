@@ -1,8 +1,8 @@
-require "slack/error"
-require "slack/configuration"
-require "slack/api"
-require "slack/client"
-require "slack/version"
+require_relative "slack/error"
+require_relative "slack/configuration"
+require_relative "slack/api"
+require_relative "slack/client"
+require_relative "slack/version"
 
 module Slack
   extend Configuration

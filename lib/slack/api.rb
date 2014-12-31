@@ -1,6 +1,7 @@
 require File.expand_path('../connection', __FILE__)
 require File.expand_path('../request', __FILE__)
 require File.expand_path('../configuration', __FILE__)
+require File.expand_path('../endpoint', __FILE__)
 
 module Slack
   # @private
@@ -18,5 +19,6 @@ module Slack
 
     include Connection
     include Request
+    include Endpoint
   end
 end
