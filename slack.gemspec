@@ -19,8 +19,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "rspec", "~> 2.4"
-  spec.add_development_dependency "webmock", "~> 1.6"
+  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "guard"
+  spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "rake"
   spec.add_development_dependency 'erubis', '~> 2.7.0'
   spec.add_development_dependency "json-schema"
