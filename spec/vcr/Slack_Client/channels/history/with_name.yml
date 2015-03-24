@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/channels.history
+    body:
+      encoding: UTF-8
+      string: channel=C04MY3KCY&token=<TOKEN>
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Slack Ruby Gem 1.1.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 06 May 2015 00:25:24 GMT
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - Accept-Encoding
+      X-Accepted-Oauth-Scopes:
+      - read
+      X-Content-Type-Options:
+      - nosniff
+      X-Oauth-Scopes:
+      - identify,read,post,client,admin
+      X-Xss-Protection:
+      - '0'
+      Content-Length:
+      - '419'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"messages":[{"user":"U0399SL90","type":"message","subtype":"channel_leave","text":"<@U0399SL90|aki017>
+        has left the channel","ts":"1430871896.000012"},{"user":"U0399SL90","type":"message","subtype":"channel_unarchive","text":"<@U0399SL90|aki017>
+        un-archived the channel","ts":"1430871887.000011"},{"user":"U0399SL90","type":"message","subtype":"channel_join","text":"<@U0399SL90|aki017>
+        has joined the channel","ts":"1430871887.000010"},{"user":"U03LM2UM7","members":["U0399SL90","U03LM2UM7"],"type":"message","subtype":"channel_archive","text":"<@U03LM2UM7|testuser>
+        archived the channel (w\/ 2 members)","ts":"1430871842.000009"},{"user":"U03LM2UM7","purpose":"TestPurpose","type":"message","subtype":"channel_purpose","text":"<@U03LM2UM7|testuser>
+        set the channel purpose: TestPurpose","ts":"1430871824.000008"},{"user":"U03LM2UM7","topic":"TestTopic","type":"message","subtype":"channel_topic","text":"<@U03LM2UM7|testuser>
+        set the channel topic: TestTopic","ts":"1430871807.000007"},{"user":"U0399SL90","inviter":"U03LM2UM7","type":"message","subtype":"channel_join","text":"<@U0399SL90|aki017>
+        has joined the channel","ts":"1430871766.000006"},{"user":"U0399SL90","type":"message","subtype":"channel_leave","text":"<@U0399SL90|aki017>
+        has left the channel","ts":"1430871759.000005"},{"user":"U0399SL90","type":"message","subtype":"channel_join","text":"<@U0399SL90|aki017>
+        has joined the channel","ts":"1430871607.000004"},{"user":"U03LM2UM7","type":"message","subtype":"channel_unarchive","text":"<@U03LM2UM7|testuser>
+        un-archived the channel","ts":"1430871607.000003"},{"user":"U03LM2UM7","type":"message","subtype":"channel_join","text":"<@U03LM2UM7|testuser>
+        has joined the channel","ts":"1430871607.000002"},{"user":"U0399SL90","members":["U0399SL90"],"type":"message","subtype":"channel_archive","text":"<@U0399SL90|aki017>
+        archived the channel (w\/ 1 member)","ts":"1430871394.000003"},{"user":"U0399SL90","type":"message","subtype":"channel_join","text":"<@U0399SL90|aki017>
+        has joined the channel","ts":"1430871123.000002"}],"has_more":false}'
+    http_version: 
+  recorded_at: Wed, 06 May 2015 00:25:24 GMT
+recorded_with: VCR 2.9.3
