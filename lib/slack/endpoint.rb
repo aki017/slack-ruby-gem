@@ -12,6 +12,7 @@ require_relative 'endpoint/oauth'
 require_relative 'endpoint/presence'
 require_relative 'endpoint/search'
 require_relative 'endpoint/stars'
+require_relative 'endpoint/team'
 require_relative 'endpoint/users'
 
 module Slack
@@ -28,6 +29,7 @@ module Slack
     include Presence
     include Search
     include Stars
+    include Team
     include Users
   end
 end
