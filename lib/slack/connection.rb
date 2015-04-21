@@ -11,7 +11,7 @@ module Slack
         :headers => {'Accept' => "application/json; charset=utf-8", 'User-Agent' => user_agent},
         :proxy => proxy,
         :url => endpoint,
-        :ca_path => ca_path,
+        :ssl => { :ca_path => ca_path },
       }
 
       Faraday::Connection.new(options) do |connection|
