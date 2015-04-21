@@ -34,7 +34,7 @@ module Slack
     DEFAULT_USER_AGENT = "Slack Ruby Gem #{Slack::VERSION}".freeze
 
     # Default openssl CA PATH
-    DEFAULT_CA_PATH = system("openssl version -a | grep OPENSSLDIR | awk '{print $2}'|sed -e 's/\"//g'")
+    DEFAULT_CA_PATH = %x[ openssl version -a | grep OPENSSLDIR | awk '{print $2}'|sed -e 's/\"//g' ]
 
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
