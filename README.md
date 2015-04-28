@@ -34,8 +34,10 @@ Slack.auth_test
 
 ## Contributing
 
-1. Fork it ( http://github.com/aki017/slack-ruby-gem/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+See [CONTRIBUTING](CONTRIBUTING.md).
+
+## License
+
+Copyright (c) 2014 aki017
+
+MIT License, see [LICENSE](LICENSE.txt) for details.
