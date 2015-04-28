@@ -2,6 +2,8 @@
 
 A Ruby wrapper for the Slack API
 
+[![Build Status](https://travis-ci.org/aki017/slack-ruby-gem.svg)](https://travis-ci.org/aki017/slack-ruby-gem)
+
 ## Installation
 
 Add this line to your application's Gemfile:
