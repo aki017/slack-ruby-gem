@@ -10,7 +10,9 @@ module Slack
       :token,
       :endpoint,
       :user_agent,
-      :proxy
+      :proxy,
+      :ca_path,
+      :ca_file
     ].freeze
 
     # The adapter that will be used to connect if none is set
@@ -31,6 +33,10 @@ module Slack
 
     # The user agent that will be sent to the API endpoint if none is set
     DEFAULT_USER_AGENT = "Slack Ruby Gem #{Slack::VERSION}".freeze
+
+    # Default openssl CA_PATH and CA_FILE path
+    DEFAULT_CA_PATH = %x[ openssl version -a | grep OPENSSLDIR | awk '{print $2}'|sed -e 's/\"//g' ]
+    DEFAULT_CA_FILE = "#{DEFAULT_CA_PATH}/ca-certificates.crt"
 
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
@@ -59,6 +65,8 @@ module Slack
       self.endpoint   = DEFAULT_ENDPOINT
       self.user_agent = DEFAULT_USER_AGENT
       self.proxy      = DEFAULT_PROXY
+      self.ca_path    = DEFAULT_CA_PATH
+      self.ca_file    = DEFAULT_CA_FILE
     end
   end
 end
