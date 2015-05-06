@@ -15,6 +15,9 @@ module Slack
       }
 
       Faraday::Connection.new(options) do |connection|
+        Array(middlewares).each do |middleware|
+          connection.use middleware
+        end
         connection.use Faraday::Request::Multipart
         connection.use Faraday::Request::UrlEncoded
         connection.use Faraday::Response::ParseJson

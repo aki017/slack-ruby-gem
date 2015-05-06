@@ -12,7 +12,8 @@ module Slack
       :user_agent,
       :proxy,
       :ca_path,
-      :ca_file
+      :ca_file,
+      :middlewares
     ].freeze
 
     # The adapter that will be used to connect if none is set
@@ -38,6 +39,8 @@ module Slack
     DEFAULT_CA_PATH = %x[ openssl version -a | grep OPENSSLDIR | awk '{print $2}'|sed -e 's/\"//g' ]
     DEFAULT_CA_FILE = "#{DEFAULT_CA_PATH}/ca-certificates.crt"
 
+    DEFAULT_MIDDLEWARES = []
+
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -60,13 +63,14 @@ module Slack
 
     # Reset all configuration options to defaults
     def reset
-      self.adapter    = DEFAULT_ADAPTER
-      self.token      = DEFAULT_TOKEN
-      self.endpoint   = DEFAULT_ENDPOINT
-      self.user_agent = DEFAULT_USER_AGENT
-      self.proxy      = DEFAULT_PROXY
-      self.ca_path    = DEFAULT_CA_PATH
-      self.ca_file    = DEFAULT_CA_FILE
+      self.adapter     = DEFAULT_ADAPTER
+      self.token       = DEFAULT_TOKEN
+      self.endpoint    = DEFAULT_ENDPOINT
+      self.user_agent  = DEFAULT_USER_AGENT
+      self.proxy       = DEFAULT_PROXY
+      self.ca_path     = DEFAULT_CA_PATH
+      self.ca_file     = DEFAULT_CA_FILE
+      self.middlewares = DEFAULT_MIDDLEWARES
     end
   end
 end
