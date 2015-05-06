@@ -1,5 +1,8 @@
 # Slack
 
+[![Build Status](https://travis-ci.org/aki017/slack-ruby-gem.svg)](https://travis-ci.org/aki017/slack-ruby-gem)
+[![Coverage Status](https://coveralls.io/repos/aki017/slack-ruby-gem/badge.svg?branch=spec)](https://coveralls.io/r/aki017/slack-ruby-gem?branch=spec)
+
 A Ruby wrapper for the Slack API
 
 ## Installation
