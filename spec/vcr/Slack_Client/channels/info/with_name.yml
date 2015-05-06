@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/channels.info
+    body:
+      encoding: UTF-8
+      string: channel=C04MY3KCY&token=<TOKEN>
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Slack Ruby Gem 1.1.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 06 May 2015 00:23:12 GMT
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - Accept-Encoding
+      X-Accepted-Oauth-Scopes:
+      - read
+      X-Content-Type-Options:
+      - nosniff
+      X-Oauth-Scopes:
+      - identify,read,post,client,admin
+      X-Xss-Protection:
+      - '0'
+      Content-Length:
+      - '311'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":{"id":"C04MY3KCY","name":"gem_testroom","is_channel":true,"created":1430871124,"creator":"U0399SL90","is_archived":false,"is_general":false,"is_member":true,"last_read":"1430871394.000003","latest":{"user":"U0399SL90","inviter":"U03LM2UM7","type":"message","subtype":"channel_join","text":"<@U0399SL90|aki017>
+        has joined the channel","ts":"1430871766.000006"},"unread_count":5,"unread_count_display":1,"members":["U0399SL90","U03LM2UM7"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0}}}'
+    http_version: 
+  recorded_at: Wed, 06 May 2015 00:23:12 GMT
+recorded_with: VCR 2.9.3
