@@ -31,7 +31,7 @@ module Slack
           end
 
           ws.on :close do |event|
-            ws = nil
+            EM.stop
           end
         end
       end
