@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/slack-api.svg)](http://badge.fury.io/rb/slack-api)
 [![Build Status](https://travis-ci.org/aki017/slack-ruby-gem.svg)](https://travis-ci.org/aki017/slack-ruby-gem)
-[![Coverage Status](https://coveralls.io/repos/aki017/slack-ruby-gem/badge.svg?branch=spec)](https://coveralls.io/r/aki017/slack-ruby-gem?branch=spec)
+[![Coverage Status](https://coveralls.io/repos/aki017/slack-ruby-gem/badge.svg)](https://coveralls.io/r/aki017/slack-ruby-gem)
 
 A Ruby wrapper for the Slack API
 
