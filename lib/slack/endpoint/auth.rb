@@ -9,7 +9,7 @@ module Slack
       # @see https://api.slack.com/methods/auth.test
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/auth.test.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/auth.test.json
-      def auth_test(options={})
+      def auth_test!(options={})
         post("auth.test", options)
       end
 

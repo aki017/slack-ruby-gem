@@ -34,11 +34,11 @@ module Helpers
   end
 
   def test_user_id
-    @test_user_id ||= valid_client.auth_test["user_id"]
+    @test_user_id ||= valid_client.auth_test!["user_id"]
   end
 
   def test_user_name
-    @test_user_name ||= valid_client.auth_test["user"]
+    @test_user_name ||= valid_client.auth_test!["user"]
   end
 
   def another_user_name
