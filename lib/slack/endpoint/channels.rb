@@ -31,8 +31,8 @@ module Slack
 
       #
       # This method returns a portion of messages/events from the specified channel.
-To read the entire history for a channel, call the method with no latest or
-oldest arguments, and then continue paging using the instructions below.
+      # To read the entire history for a channel, call the method with no latest or
+      # oldest arguments, and then continue paging using the instructions below.
       #
       # @option options [Object] :channel
       #   Channel to fetch history for.
