@@ -75,6 +75,19 @@ module Slack
       end
 
       #
+      # Returns information about a private group.
+      #
+      # @option options [group] :channel
+      #   Private group to find info for.
+      # @see https://api.slack.com/methods/groups.info
+      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.info.md
+      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.info.json
+      def groups_info(options={})
+        throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        post("groups.info", options)
+      end
+
+      #
       # Invites a user to a private group.
       #
       # @option options [group] :channel
