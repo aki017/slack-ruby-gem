@@ -4,6 +4,8 @@ require 'eventmachine'
 module Slack
   module RealTime
     class Client
+      attr_accessor :url
+
       def initialize(url)
         @url = url
         @callbacks ||= {}
@@ -14,14 +16,18 @@ module Slack
         @callbacks[type] << block
       end
 
+      def stop
+        @ws.close if @ws
+      end
+
       def start
         EM.run do
-          ws = Faye::WebSocket::Client.new(@url)
+          @ws = Faye::WebSocket::Client.new(@url)
 
-          ws.on :open do |event|
+          @ws.on :open do |event|
           end
 
-          ws.on :message do |event|
+          @ws.on :message do |event|
             data = JSON.parse(event.data)
             if !data["type"].nil? && !@callbacks[data["type"].to_sym].nil?
               @callbacks[data["type"].to_sym].each do |c|
@@ -30,7 +36,8 @@ module Slack
             end
           end
 
-          ws.on :close do |event|
+          @ws.on :close do |event|
+            @ws = nil
             EM.stop
           end
         end
