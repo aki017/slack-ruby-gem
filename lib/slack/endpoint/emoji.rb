@@ -4,7 +4,7 @@ module Slack
   module Endpoint
     module Emoji
       #
-      # Lists custom emoji for a team.
+      # This method lists the custom emoji for a team.
       #
       # @see https://api.slack.com/methods/emoji.list
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/emoji.list.md

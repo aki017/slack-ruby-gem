@@ -4,9 +4,9 @@ module Slack
   module Endpoint
     module Channels
       #
-      # Archives a channel.
+      # This method archives a channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to archive
       # @see https://api.slack.com/methods/channels.archive
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.archive.md
@@ -17,7 +17,7 @@ module Slack
       end
 
       #
-      # Creates a channel.
+      # This method is used to create a channel.
       #
       # @option options [Object] :name
       #   Name of channel to create
@@ -30,14 +30,18 @@ module Slack
       end
 
       #
-      # Fetches history of messages and events from a channel.
+      # This method returns a portion of messages/events from the specified channel.
+To read the entire history for a channel, call the method with no latest or
+oldest arguments, and then continue paging using the instructions below.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to fetch history for.
-      # @option options [timestamp] :latest
-      #   Latest message timestamp to include in results.
-      # @option options [timestamp] :oldest
-      #   Oldest message timestamp to include in results.
+      # @option options [Object] :latest
+      #   End of time range of messages to include in results.
+      # @option options [Object] :oldest
+      #   Start of time range of messages to include in results.
+      # @option options [Object] :inclusive
+      #   Include messages with latest or oldest timestamp in results.
       # @option options [Object] :count
       #   Number of messages to return, between 1 and 1000.
       # @see https://api.slack.com/methods/channels.history
@@ -49,9 +53,9 @@ module Slack
       end
 
       #
-      # Gets information about a channel.
+      # This method returns information about a team channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to get info on
       # @see https://api.slack.com/methods/channels.info
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.info.md
@@ -62,11 +66,11 @@ module Slack
       end
 
       #
-      # Invites a user to a channel.
+      # This method is used to invite a user to a channel. The calling user must be a member of the channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to invite user to.
-      # @option options [user] :user
+      # @option options [Object] :user
       #   User to invite to channel.
       # @see https://api.slack.com/methods/channels.invite
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.invite.md
@@ -78,7 +82,8 @@ module Slack
       end
 
       #
-      # Joins a channel, creating it if needed.
+      # This method is used to join a channel. If the channel does not exist, it is
+created.
       #
       # @option options [Object] :name
       #   Name of channel to join
@@ -91,11 +96,11 @@ module Slack
       end
 
       #
-      # Removes a user from a channel.
+      # This method allows a user to remove another member from a team channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to remove user from.
-      # @option options [user] :user
+      # @option options [Object] :user
       #   User to remove from channel.
       # @see https://api.slack.com/methods/channels.kick
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.kick.md
@@ -107,9 +112,9 @@ module Slack
       end
 
       #
-      # Leaves a channel.
+      # This method is used to leave a channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to leave
       # @see https://api.slack.com/methods/channels.leave
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.leave.md
@@ -120,7 +125,9 @@ module Slack
       end
 
       #
-      # Lists all channels in a Slack team.
+      # This method returns a list of all channels in the team. This includes channels the caller is in, channels
+they are not currently in, and archived channels. The number of (non-deactivated) members in each channel
+is also returned.
       #
       # @option options [Object] :exclude_archived
       #   Don't return archived channels.
@@ -132,11 +139,11 @@ module Slack
       end
 
       #
-      # Sets the read cursor in a channel.
+      # This method moves the read cursor in a channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to set reading cursor in.
-      # @option options [timestamp] :ts
+      # @option options [Object] :ts
       #   Timestamp of the most recently seen message.
       # @see https://api.slack.com/methods/channels.mark
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.mark.md
@@ -148,9 +155,9 @@ module Slack
       end
 
       #
-      # Renames a channel.
+      # This method renames a team channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to rename
       # @option options [Object] :name
       #   New name for channel.
@@ -164,9 +171,9 @@ module Slack
       end
 
       #
-      # Sets the purpose for a channel.
+      # This method is used to change the purpose of a channel. The calling user must be a member of the channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to set the purpose of
       # @option options [Object] :purpose
       #   The new purpose
@@ -180,9 +187,9 @@ module Slack
       end
 
       #
-      # Sets the topic for a channel.
+      # This method is used to change the topic of a channel. The calling user must be a member of the channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to set the topic of
       # @option options [Object] :topic
       #   The new topic
@@ -196,9 +203,9 @@ module Slack
       end
 
       #
-      # Unarchives a channel.
+      # This method unarchives a channel. The calling user is added to the channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to unarchive
       # @see https://api.slack.com/methods/channels.unarchive
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.unarchive.md

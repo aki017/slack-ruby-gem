@@ -4,11 +4,11 @@ module Slack
   module Endpoint
     module Chat
       #
-      # Deletes a message.
+      # This method deletes a message from a channel.
       #
       # @option options [Object] :ts
       #   Timestamp of the message to be deleted.
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel containing the message to be deleted.
       # @see https://api.slack.com/methods/chat.delete
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/chat.delete.md
@@ -20,14 +20,16 @@ module Slack
       end
 
       #
-      # Sends a message to a channel.
+      # This method posts a message to a channel.
       #
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name.
       # @option options [Object] :text
       #   Text of the message to send. See below for an explanation of formatting.
       # @option options [Object] :username
       #   Name of bot.
+      # @option options [Object] :as_user
+      #   Pass true to post the message as the authed user, instead of as a bot
       # @option options [Object] :parse
       #   Change how messages are treated. See below.
       # @option options [Object] :link_names
@@ -41,7 +43,7 @@ module Slack
       # @option options [Object] :icon_url
       #   URL to an image to use as the icon for this message
       # @option options [Object] :icon_emoji
-      #   emoji to use as the icon for this message. Overrides `icon_url`.
+      #   emoji to use as the icon for this message. Overrides icon_url.
       # @see https://api.slack.com/methods/chat.postMessage
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/chat.postMessage.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/chat.postMessage.json
@@ -52,14 +54,14 @@ module Slack
       end
 
       #
-      # Updates a message.
+      # This method updates a message in a channel.
       #
       # @option options [Object] :ts
       #   Timestamp of the message to be updated.
-      # @option options [channel] :channel
+      # @option options [Object] :channel
       #   Channel containing the message to be updated.
       # @option options [Object] :text
-      #   New text for the message, using the [default formatting rules](/docs/formatting).
+      #   New text for the message, using the default formatting rules.
       # @see https://api.slack.com/methods/chat.update
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/chat.update.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/chat.update.json

@@ -4,9 +4,9 @@ module Slack
   module Endpoint
     module Im
       #
-      # Close a direct message channel.
+      # This method closes a direct message channel.
       #
-      # @option options [im] :channel
+      # @option options [Object] :channel
       #   Direct message channel to close.
       # @see https://api.slack.com/methods/im.close
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.close.md
@@ -17,14 +17,18 @@ module Slack
       end
 
       #
-      # Fetches history of messages and events from direct message channel.
+      # This method returns a portion of messages/events from the specified direct message channel.
+To read the entire history for a direct message channel, call the method with no latest or
+oldest arguments, and then continue paging using the instructions below.
       #
-      # @option options [im] :channel
+      # @option options [Object] :channel
       #   Direct message channel to fetch history for.
-      # @option options [timestamp] :latest
-      #   Latest message timestamp to include in results.
-      # @option options [timestamp] :oldest
-      #   Oldest message timestamp to include in results.
+      # @option options [Object] :latest
+      #   End of time range of messages to include in results.
+      # @option options [Object] :oldest
+      #   Start of time range of messages to include in results.
+      # @option options [Object] :inclusive
+      #   Include messages with latest or oldest timestamp in results.
       # @option options [Object] :count
       #   Number of messages to return, between 1 and 1000.
       # @see https://api.slack.com/methods/im.history
@@ -36,7 +40,7 @@ module Slack
       end
 
       #
-      # Lists direct message channels for the calling user.
+      # This method returns a list of all im channels that the user has.
       #
       # @see https://api.slack.com/methods/im.list
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.list.md
@@ -46,11 +50,11 @@ module Slack
       end
 
       #
-      # Sets the read cursor in a direct message channel.
+      # This method moves the read cursor in a direct message channel.
       #
-      # @option options [im] :channel
+      # @option options [Object] :channel
       #   Direct message channel to set reading cursor in.
-      # @option options [timestamp] :ts
+      # @option options [Object] :ts
       #   Timestamp of the most recently seen message.
       # @see https://api.slack.com/methods/im.mark
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.mark.md
@@ -62,9 +66,9 @@ module Slack
       end
 
       #
-      # Opens a direct message channel.
+      # This method opens a direct message channel with another member of your Slack team.
       #
-      # @option options [user] :user
+      # @option options [Object] :user
       #   User to open a direct message channel with.
       # @see https://api.slack.com/methods/im.open
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.open.md

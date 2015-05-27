@@ -4,7 +4,7 @@ module Slack
   module Endpoint
     module Auth
       #
-      # Checks authentication & identity.
+      # This method checks authentication and tells you who you are.
       #
       # @see https://api.slack.com/methods/auth.test
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/auth.test.md

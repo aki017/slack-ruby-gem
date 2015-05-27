@@ -4,9 +4,10 @@ module Slack
   module Endpoint
     module Users
       #
-      # Gets user presence information.
+      # This method lets you find out information about a user's presence.
+Consult the presence documentation for more details.
       #
-      # @option options [user] :user
+      # @option options [Object] :user
       #   User to get presence info on. Defaults to the authed user.
       # @see https://api.slack.com/methods/users.getPresence
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.getPresence.md
@@ -17,9 +18,9 @@ module Slack
       end
 
       #
-      # Gets information about a user.
+      # This method returns information about a team member.
       #
-      # @option options [user] :user
+      # @option options [Object] :user
       #   User to get info on
       # @see https://api.slack.com/methods/users.info
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.info.md
@@ -30,7 +31,7 @@ module Slack
       end
 
       #
-      # Lists all users in a Slack team.
+      # This method returns a list of all users in the team. This includes deleted/deactivated users.
       #
       # @see https://api.slack.com/methods/users.list
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.list.md
@@ -40,7 +41,9 @@ module Slack
       end
 
       #
-      # Marks a user as active.
+      # This method lets the slack messaging server know that the authenticated user
+is currently active. Consult the presence documentation for
+more details.
       #
       # @see https://api.slack.com/methods/users.setActive
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setActive.md
@@ -50,10 +53,11 @@ module Slack
       end
 
       #
-      # Manually sets user presence.
+      # This method lets you set the calling user's manual presence.
+Consult the presence documentation for more details.
       #
       # @option options [Object] :presence
-      #   Either `auto` or `away`
+      #   Either auto or away
       # @see https://api.slack.com/methods/users.setPresence
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setPresence.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setPresence.json
