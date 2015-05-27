@@ -10,12 +10,9 @@ RSpec.describe Slack::Client, :vcr do
       end
 
       it "with invalid token" do
-        expect(
+        expect {
           invalid_client.auth_test
-        ).to include({
-          "ok" => false,
-          "error" => "invalid_auth"
-        })
+        }.to raise_error Slack::ErrorInResponse, "invalid_auth"
       end
     end
   end
