@@ -5,7 +5,7 @@ module Slack
     module Users
       #
       # This method lets you find out information about a user's presence.
-Consult the presence documentation for more details.
+      # Consult the presence documentation for more details.
       #
       # @option options [Object] :user
       #   User to get presence info on. Defaults to the authed user.
@@ -42,8 +42,8 @@ Consult the presence documentation for more details.
 
       #
       # This method lets the slack messaging server know that the authenticated user
-is currently active. Consult the presence documentation for
-more details.
+      # is currently active. Consult the presence documentation for
+      # more details.
       #
       # @see https://api.slack.com/methods/users.setActive
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setActive.md
@@ -54,7 +54,7 @@ more details.
 
       #
       # This method lets you set the calling user's manual presence.
-Consult the presence documentation for more details.
+      # Consult the presence documentation for more details.
       #
       # @option options [Object] :presence
       #   Either auto or away

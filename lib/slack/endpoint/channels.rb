@@ -31,8 +31,8 @@ module Slack
 
       #
       # This method returns a portion of messages/events from the specified channel.
-To read the entire history for a channel, call the method with no latest or
-oldest arguments, and then continue paging using the instructions below.
+      # To read the entire history for a channel, call the method with no latest or
+      # oldest arguments, and then continue paging using the instructions below.
       #
       # @option options [Object] :channel
       #   Channel to fetch history for.
@@ -83,7 +83,7 @@ oldest arguments, and then continue paging using the instructions below.
 
       #
       # This method is used to join a channel. If the channel does not exist, it is
-created.
+      # created.
       #
       # @option options [Object] :name
       #   Name of channel to join
@@ -126,8 +126,8 @@ created.
 
       #
       # This method returns a list of all channels in the team. This includes channels the caller is in, channels
-they are not currently in, and archived channels. The number of (non-deactivated) members in each channel
-is also returned.
+      # they are not currently in, and archived channels. The number of (non-deactivated) members in each channel
+      # is also returned.
       #
       # @option options [Object] :exclude_archived
       #   Don't return archived channels.

@@ -5,7 +5,7 @@ module Slack
     module Oauth
       #
       # This method allows you to exchange a temporary OAuth code for an API access token.
-This is used as part of the OAuth authentication flow.
+      # This is used as part of the OAuth authentication flow.
       #
       # @option options [Object] :client_id
       #   Issued when you created your application.

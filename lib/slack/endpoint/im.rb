@@ -18,8 +18,8 @@ module Slack
 
       #
       # This method returns a portion of messages/events from the specified direct message channel.
-To read the entire history for a direct message channel, call the method with no latest or
-oldest arguments, and then continue paging using the instructions below.
+      # To read the entire history for a direct message channel, call the method with no latest or
+      # oldest arguments, and then continue paging using the instructions below.
       #
       # @option options [Object] :channel
       #   Direct message channel to fetch history for.

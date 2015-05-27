@@ -57,8 +57,8 @@ module Slack
 
       #
       # This method returns a portion of messages/events from the specified private group.
-To read the entire history for a group, call the method with no latest or
-oldest arguments, and then continue paging using the instructions below.
+      # To read the entire history for a group, call the method with no latest or
+      # oldest arguments, and then continue paging using the instructions below.
       #
       # @option options [Object] :channel
       #   Group to fetch history for.
@@ -138,7 +138,7 @@ oldest arguments, and then continue paging using the instructions below.
 
       #
       # This method returns a list of groups in the team that the caller is in and archived groups that the caller was in.
-The list of (non-deactivated) members in each group is also returned.
+      # The list of (non-deactivated) members in each group is also returned.
       #
       # @option options [Object] :exclude_archived
       #   Don't return archived groups.
