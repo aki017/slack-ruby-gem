@@ -5,7 +5,9 @@ module Slack
     module <%= group.capitalize %>
 <% names.each do |name, data| %>
       #
-      # <%= data["desc"] %>
+<% data["desc"].lines.each do |l| %>
+      # <%= l.strip %>
+<% end %>
       #
 <% data["args"].reject{|k, v| k=="token"}.each do |arg_name, arg_v| %>
       # @option options [<%= arg_v["type"] %>] :<%= arg_name %>
