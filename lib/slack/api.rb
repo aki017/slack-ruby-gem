@@ -23,8 +23,8 @@ module Slack
     include Endpoint
 
     def realtime
-      url = post("rtm.start")["url"]
-      RealTime::Client.new(url)
+      rtm_start_response = post("rtm.start")
+      RealTime::Client.new(rtm_start_response)
     end
   end
 end
