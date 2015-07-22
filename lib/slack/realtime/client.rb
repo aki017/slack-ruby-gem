@@ -4,8 +4,11 @@ require 'eventmachine'
 module Slack
   module RealTime
     class Client
-      def initialize(url)
-        @url = url
+      attr_reader :response
+
+      def initialize(rtm_start_response)
+        @response    = rtm_start_response
+        @url         = rtm_start_response["url"]
         @callbacks ||= {}
       end
 
