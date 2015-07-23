@@ -16,4 +16,7 @@ module Slack
 
   # Raised when a subscription payload hash is invalid
   class InvalidSignature < Error; end
+
+  # Raised when an error is returned in the response
+  class ErrorInResponse < StandardError; end
 end

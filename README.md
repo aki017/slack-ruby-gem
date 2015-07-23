@@ -29,7 +29,7 @@ Slack.configure do |config|
   config.token = "YOUR_TOKEN"
 end
 
-Slack.auth_test
+Slack.auth_test!
 ```
 
 ### RTM

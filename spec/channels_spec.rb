@@ -57,12 +57,9 @@ RSpec.describe Slack::Client, :vcr do
       end
 
       it "with taken name" do
-        response = valid_client.channels_create name: "general"
-
-        expect(response).to include({
-          "ok" => false,
-          "error" => "name_taken"
-        })
+        expect {
+          valid_client.channels_create name: "general"
+        }.to raise_error Slack::ErrorInResponse, "name_taken"
       end
     end
 

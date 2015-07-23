@@ -35,7 +35,9 @@ module Slack
           request.body = options unless options.empty?
         end
       end
-      return response.body
+      body = response.body
+      fail ErrorInResponse, body['error'] if body.is_a?(Hash) && !body['ok']
+      body
     end
   end
 end
