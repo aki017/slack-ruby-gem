@@ -19,6 +19,7 @@ module Slack
           ws = Faye::WebSocket::Client.new(@url)
 
           ws.on :open do |event|
+              start_ping_loop(ws)
           end
 
           ws.on :message do |event|
@@ -30,9 +31,22 @@ module Slack
             end
           end
 
+
           ws.on :close do |event|
             EM.stop
           end
+        end
+      end
+    end
+
+    def start_ping_loop(ws)
+      Thread.new do
+        loop do
+          ws.send JSON.generate({
+            id: 1,
+            type: 'ping'
+          })
+          sleep 10
         end
       end
     end
