@@ -28,7 +28,6 @@ module Slack
         ws = Faye::WebSocket::Client.new(@url)
 
         ws.on :open do |event|
-          start_ping_loop(ws)
         end
 
         ws.on :message do |event|
