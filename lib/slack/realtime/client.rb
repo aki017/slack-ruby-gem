@@ -15,32 +15,24 @@ module Slack
       end
 
       def start
-        loop do
-          connect_and_run
-        end
-      end
-    end
+        EM.run do
+          ws = Faye::WebSocket::Client.new(@url, nil, ping: 30)
 
-    private
+          ws.on :open do |event|
+          end
 
-    def connect_and_run
-      EM.run do
-        ws = Faye::WebSocket::Client.new(@url, nil, ping: 30)
-
-        ws.on :open do |event|
-        end
-
-        ws.on :message do |event|
-          data = JSON.parse(event.data)
-          if !data["type"].nil? && !@callbacks[data["type"].to_sym].nil?
-            @callbacks[data["type"].to_sym].each do |c|
-              c.call data
+          ws.on :message do |event|
+            data = JSON.parse(event.data)
+            if !data["type"].nil? && !@callbacks[data["type"].to_sym].nil?
+              @callbacks[data["type"].to_sym].each do |c|
+                c.call data
+              end
             end
           end
-        end
 
-        ws.on :close do |event|
-          EM.stop
+          ws.on :close do |event|
+            EM.stop
+          end
         end
       end
     end
