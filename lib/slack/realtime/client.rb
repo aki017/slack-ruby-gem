@@ -31,6 +31,11 @@ module Slack
           end
 
           ws.on :close do |event|
+            if !@callbacks[:close].nil?
+              @callbacks[:close].each do |c|
+                c.call
+              end
+            end
             EM.stop
           end
         end
