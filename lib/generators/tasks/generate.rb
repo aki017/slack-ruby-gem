@@ -54,10 +54,10 @@ namespace :api do
     outpath = File.expand_path "lib/slack/endpoint.rb", root
     included_modules = File.read(outpath).scan(/include (.+)/).flatten.map(&:downcase)
 
-    if opts[:api_name]
-      if data.keys.include?(opts[:api_name]) && \
-         !included_modules.include?(opts[:api_name])
-        included_modules << opts[:api_name]
+    if opts.api_name
+      if data.keys.include?(opts.api_name) && \
+         !included_modules.include?(opts.api_name)
+        included_modules << opts.api_name
         FileUtils.rm_rf outpath
         File.write outpath, templete.result(files: included_modules.sort)
       end
@@ -73,7 +73,7 @@ namespace :api do
 
     outdir = File.expand_path "lib/slack/endpoint", root
     data.each_with_index do |(group, names), index|
-      next if opts[:api_name] && opts[:api_name] != group
+      next if opts.api_name && opts.api_name != group
 
       printf "%2d/%2d %10s %s\n", index, data.size, group, names.keys
 
