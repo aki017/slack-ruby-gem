@@ -8,7 +8,7 @@ namespace :api do
     Dir.chdir root
     sh "git submodule update --init --recursive"
     sh "git submodule foreach git pull origin master"
-    Rake::Task["api:generate"].execute
+    Rake::Task["api:generate"].execute(args)
     sh "git add lib/slack/endpoint.rb"
     sh "git add lib/slack/endpoint/"
     sh "git add slack-api-docs"
@@ -16,7 +16,7 @@ namespace :api do
   end
 
   desc "Generate"
-  task :generate do
+  task :generate, [:api_name] do |task, args|
     jsons = File.expand_path 'slack-api-docs/methods/*.json', root
     schema_path = File.expand_path "lib/generators/schema.json", root
     schema = JSON.parse(File.read(schema_path))
