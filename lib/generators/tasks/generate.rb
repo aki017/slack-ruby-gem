@@ -62,6 +62,8 @@ namespace :api do
 
     outdir = File.expand_path "lib/slack/endpoint", root
     data.each_with_index do |(group, names), index|
+      next if opts[:api_name] && opts[:api_name] != group
+
       printf "%2d/%2d %10s %s\n", index, data.size, group, names.keys
 
       outpath = File.expand_path "#{group}.rb", outdir
