@@ -29,7 +29,7 @@ namespace :api do
 
       parsed = JSON.parse(File.read(path))
       JSON::Validator.validate(schema, parsed, :insert_defaults => true)
- 
+
       result[prefix][name] = parsed
 
     end
