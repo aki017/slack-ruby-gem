@@ -52,8 +52,18 @@ namespace :api do
     templete = Erubis::Eruby.new(File.read(templete_path))
 
     outpath = File.expand_path "lib/slack/endpoint.rb", root
-    FileUtils.rm_rf outpath
-    File.write outpath, templete.result(files: data.keys)
+    included_modules = File.read(outpath).scan(/include (.+)/).flatten.map(&:downcase)
+
+    if opts[:api_name]
+      if ! included_modules.include?(opts[:api_name])
+        included_modules << opts[:api_name]
+        FileUtils.rm_rf outpath
+        File.write outpath, templete.result(files: included_modules.sort)
+      end
+    else
+      FileUtils.rm_rf outpath
+      File.write outpath, templete.result(files: data.keys)
+    end
   end
 
   def generate_methods(data, opts)
