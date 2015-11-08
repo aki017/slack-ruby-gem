@@ -61,12 +61,11 @@ namespace :api do
     templete = Erubis::Eruby.new(File.read(templete_path))
 
     outdir = File.expand_path "lib/slack/endpoint", root
-    FileUtils.rm_rf outdir
-    FileUtils.mkdir outdir
     data.each_with_index do |(group, names), index|
       printf "%2d/%2d %10s %s\n", index, data.size, group, names.keys
 
       outpath = File.expand_path "#{group}.rb", outdir
+      File.delete(outpath) if File.exist?(outpath)
       File.write outpath, templete.result(group: group, names: names)
     end
   end
