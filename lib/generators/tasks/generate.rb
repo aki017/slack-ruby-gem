@@ -34,7 +34,7 @@ namespace :api do
 
     end
 
-    generate_methods(data)
+    generate_methods(data, args)
     generate_endpoint(data)
   end
 
@@ -56,7 +56,7 @@ namespace :api do
     File.write outpath, templete.result(files: data.keys)
   end
 
-  def generate_methods(data)
+  def generate_methods(data, opts)
     templete_path = File.expand_path 'lib/generators/templates/method.rb.erb', root
     templete = Erubis::Eruby.new(File.read(templete_path))
 
