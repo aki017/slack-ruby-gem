@@ -35,7 +35,7 @@ namespace :api do
     end
 
     generate_methods(data, args)
-    generate_endpoint(data)
+    generate_endpoint(data, args)
   end
 
   desc "Cleanup"
@@ -47,7 +47,7 @@ namespace :api do
     FileUtils.rm_rf outpath
   end
 
-  def generate_endpoint(data)
+  def generate_endpoint(data, opts)
     templete_path = File.expand_path 'lib/generators/templates/endpoint.rb.erb', root
     templete = Erubis::Eruby.new(File.read(templete_path))
 
