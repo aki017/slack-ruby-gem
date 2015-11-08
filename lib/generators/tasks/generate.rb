@@ -4,7 +4,7 @@ require 'erubis'
 
 namespace :api do
   desc "update"
-  task :update do
+  task :update, [:api_name] do |task, args|
     Dir.chdir root
     sh "git submodule update --init --recursive"
     sh "git submodule foreach git pull origin master"
