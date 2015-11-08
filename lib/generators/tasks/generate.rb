@@ -55,7 +55,8 @@ namespace :api do
     included_modules = File.read(outpath).scan(/include (.+)/).flatten.map(&:downcase)
 
     if opts[:api_name]
-      if ! included_modules.include?(opts[:api_name])
+      if data.keys.include?(opts[:api_name]) && \
+         !included_modules.include?(opts[:api_name])
         included_modules << opts[:api_name]
         FileUtils.rm_rf outpath
         File.write outpath, templete.result(files: included_modules.sort)
