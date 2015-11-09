@@ -20,7 +20,7 @@ namespace :api do
     schema_path = File.expand_path "lib/generators/schema.json", root
     schema = JSON.parse(File.read(schema_path))
 
-    data = Dir.glob(jsons).each_with_object({}) do |path, result|
+    data = Dir.glob(jsons).sort.each_with_object({}) do |path, result|
       name = File.basename(path, ".json")
       prefix, name = name.split(".")
       next if prefix == "rtm"
