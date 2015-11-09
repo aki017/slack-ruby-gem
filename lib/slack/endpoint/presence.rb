@@ -13,6 +13,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/presence.set.json
       def presence_set(options={})
         throw ArgumentError.new("Required arguments :presence missing") if options[:presence].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("presence.set", options)
       end
 

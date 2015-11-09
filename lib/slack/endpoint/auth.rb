@@ -10,6 +10,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/auth.test.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/auth.test.json
       def auth_test(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("auth.test", options)
       end
 

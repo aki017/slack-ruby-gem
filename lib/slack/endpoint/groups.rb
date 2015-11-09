@@ -13,6 +13,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.archive.json
       def groups_archive(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.archive", options)
       end
 
@@ -26,6 +27,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.close.json
       def groups_close(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.close", options)
       end
 
@@ -39,6 +41,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.create.json
       def groups_create(options={})
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.create", options)
       end
 
@@ -52,6 +55,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.createChild.json
       def groups_createChild(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.createChild", options)
       end
 
@@ -70,11 +74,14 @@ module Slack
       #   Include messages with latest or oldest timestamp in results.
       # @option options [Object] :count
       #   Number of messages to return, between 1 and 1000.
+      # @option options [Object] :unreads
+      #   Include unread_count_display in the output?
       # @see https://api.slack.com/methods/groups.history
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.history.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.history.json
       def groups_history(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.history", options)
       end
 
@@ -88,6 +95,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.info.json
       def groups_info(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.info", options)
       end
 
@@ -104,6 +112,7 @@ module Slack
       def groups_invite(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.invite", options)
       end
 
@@ -120,6 +129,7 @@ module Slack
       def groups_kick(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.kick", options)
       end
 
@@ -133,6 +143,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.leave.json
       def groups_leave(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.leave", options)
       end
 
@@ -146,6 +157,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.list.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.list.json
       def groups_list(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.list", options)
       end
 
@@ -162,6 +174,7 @@ module Slack
       def groups_mark(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.mark", options)
       end
 
@@ -175,6 +188,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.open.json
       def groups_open(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.open", options)
       end
 
@@ -191,6 +205,7 @@ module Slack
       def groups_rename(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.rename", options)
       end
 
@@ -207,6 +222,7 @@ module Slack
       def groups_setPurpose(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :purpose missing") if options[:purpose].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.setPurpose", options)
       end
 
@@ -223,6 +239,7 @@ module Slack
       def groups_setTopic(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :topic missing") if options[:topic].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.setTopic", options)
       end
 
@@ -236,6 +253,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/groups.unarchive.json
       def groups_unarchive(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("groups.unarchive", options)
       end
 

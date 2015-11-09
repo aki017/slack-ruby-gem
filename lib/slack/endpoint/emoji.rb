@@ -10,6 +10,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/emoji.list.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/emoji.list.json
       def emoji_list(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("emoji.list", options)
       end
 

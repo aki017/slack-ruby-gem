@@ -16,14 +16,15 @@ module Slack
       def chat_delete(options={})
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("chat.delete", options)
       end
 
       #
-      # This method posts a message to a channel.
+      # This method posts a message to a public channel, private group, or IM channel.
       #
       # @option options [Object] :channel
-      #   Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name.
+      #   Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See below for more details.
       # @option options [Object] :text
       #   Text of the message to send. See below for an explanation of formatting.
       # @option options [Object] :username
@@ -50,6 +51,7 @@ module Slack
       def chat_postMessage(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("chat.postMessage", options)
       end
 
@@ -62,6 +64,12 @@ module Slack
       #   Channel containing the message to be updated.
       # @option options [Object] :text
       #   New text for the message, using the default formatting rules.
+      # @option options [Object] :attachments
+      #   Structured message attachments.
+      # @option options [Object] :parse
+      #   Change how messages are treated. See below.
+      # @option options [Object] :link_names
+      #   Find and link channel names and usernames.
       # @see https://api.slack.com/methods/chat.update
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/chat.update.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/chat.update.json
@@ -69,6 +77,7 @@ module Slack
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("chat.update", options)
       end
 

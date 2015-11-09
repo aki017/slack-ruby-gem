@@ -13,6 +13,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.close.json
       def im_close(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("im.close", options)
       end
 
@@ -31,11 +32,14 @@ module Slack
       #   Include messages with latest or oldest timestamp in results.
       # @option options [Object] :count
       #   Number of messages to return, between 1 and 1000.
+      # @option options [Object] :unreads
+      #   Include unread_count_display in the output?
       # @see https://api.slack.com/methods/im.history
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.history.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.history.json
       def im_history(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("im.history", options)
       end
 
@@ -46,6 +50,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.list.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.list.json
       def im_list(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("im.list", options)
       end
 
@@ -62,6 +67,7 @@ module Slack
       def im_mark(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("im.mark", options)
       end
 
@@ -75,6 +81,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/im.open.json
       def im_open(options={})
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("im.open", options)
       end
 

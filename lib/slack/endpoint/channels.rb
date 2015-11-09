@@ -13,6 +13,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.archive.json
       def channels_archive(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.archive", options)
       end
 
@@ -26,6 +27,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.create.json
       def channels_create(options={})
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.create", options)
       end
 
@@ -44,11 +46,14 @@ module Slack
       #   Include messages with latest or oldest timestamp in results.
       # @option options [Object] :count
       #   Number of messages to return, between 1 and 1000.
+      # @option options [Object] :unreads
+      #   Include unread_count_display in the output?
       # @see https://api.slack.com/methods/channels.history
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.history.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.history.json
       def channels_history(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.history", options)
       end
 
@@ -62,6 +67,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.info.json
       def channels_info(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.info", options)
       end
 
@@ -78,6 +84,7 @@ module Slack
       def channels_invite(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.invite", options)
       end
 
@@ -92,6 +99,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.join.json
       def channels_join(options={})
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.join", options)
       end
 
@@ -108,6 +116,7 @@ module Slack
       def channels_kick(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.kick", options)
       end
 
@@ -121,6 +130,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.leave.json
       def channels_leave(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.leave", options)
       end
 
@@ -135,6 +145,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.list.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.list.json
       def channels_list(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.list", options)
       end
 
@@ -151,6 +162,7 @@ module Slack
       def channels_mark(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.mark", options)
       end
 
@@ -167,6 +179,7 @@ module Slack
       def channels_rename(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.rename", options)
       end
 
@@ -183,6 +196,7 @@ module Slack
       def channels_setPurpose(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :purpose missing") if options[:purpose].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.setPurpose", options)
       end
 
@@ -199,6 +213,7 @@ module Slack
       def channels_setTopic(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :topic missing") if options[:topic].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.setTopic", options)
       end
 
@@ -212,6 +227,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/channels.unarchive.json
       def channels_unarchive(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("channels.unarchive", options)
       end
 

@@ -23,6 +23,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.all.json
       def search_all(options={})
         throw ArgumentError.new("Required arguments :query missing") if options[:query].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("search.all", options)
       end
 
@@ -46,6 +47,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.files.json
       def search_files(options={})
         throw ArgumentError.new("Required arguments :query missing") if options[:query].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("search.files", options)
       end
 
@@ -69,6 +71,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.messages.json
       def search_messages(options={})
         throw ArgumentError.new("Required arguments :query missing") if options[:query].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("search.messages", options)
       end
 

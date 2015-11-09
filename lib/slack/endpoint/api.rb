@@ -14,6 +14,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/api.test.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/api.test.json
       def api_test(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("api.test", options)
       end
 

@@ -14,6 +14,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.getPresence.json
       def users_getPresence(options={})
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.getPresence", options)
       end
 
@@ -27,16 +28,20 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.info.json
       def users_info(options={})
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.info", options)
       end
 
       #
       # This method returns a list of all users in the team. This includes deleted/deactivated users.
       #
+      # @option options [Object] :presence
+      #   Whether to include presence data in the output
       # @see https://api.slack.com/methods/users.list
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.list.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.list.json
       def users_list(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.list", options)
       end
 
@@ -49,6 +54,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setActive.md
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setActive.json
       def users_setActive(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.setActive", options)
       end
 
@@ -63,6 +69,7 @@ module Slack
       # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setPresence.json
       def users_setPresence(options={})
         throw ArgumentError.new("Required arguments :presence missing") if options[:presence].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.setPresence", options)
       end
 
