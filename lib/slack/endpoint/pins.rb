@@ -16,8 +16,8 @@ module Slack
       # @option options [Object] :timestamp
       #   Timestamp of the message to pin.
       # @see https://api.slack.com/methods/pins.add
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/pins.add.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/pins.add.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.add.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.add.json
       def pins_add(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -30,8 +30,8 @@ module Slack
       # @option options [Object] :channel
       #   Channel to get pinned items for.
       # @see https://api.slack.com/methods/pins.list
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/pins.list.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/pins.list.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.list.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.list.json
       def pins_list(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -51,8 +51,8 @@ module Slack
       # @option options [Object] :timestamp
       #   Timestamp of the message to un-pin.
       # @see https://api.slack.com/methods/pins.remove
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/pins.remove.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/pins.remove.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.remove.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.remove.json
       def pins_remove(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]

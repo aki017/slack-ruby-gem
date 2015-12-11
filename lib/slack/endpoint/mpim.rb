@@ -9,8 +9,8 @@ module Slack
       # @option options [Object] :channel
       #   MPIM to close.
       # @see https://api.slack.com/methods/mpim.close
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.close.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.close.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.close.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.close.json
       def mpim_close(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -35,8 +35,8 @@ module Slack
       # @option options [Object] :unreads
       #   Include unread_count_display in the output?
       # @see https://api.slack.com/methods/mpim.history
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.history.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.history.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.history.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.history.json
       def mpim_history(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -47,8 +47,8 @@ module Slack
       # This method returns a list of all multiparty direct message channels that the user has.
       #
       # @see https://api.slack.com/methods/mpim.list
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.list.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.list.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.list.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.list.json
       def mpim_list(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("mpim.list", options)
@@ -62,8 +62,8 @@ module Slack
       # @option options [Object] :ts
       #   Timestamp of the most recently seen message.
       # @see https://api.slack.com/methods/mpim.mark
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.mark.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.mark.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.mark.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.mark.json
       def mpim_mark(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
@@ -77,8 +77,8 @@ module Slack
       # @option options [Object] :users
       #   Comma separated lists of users.  The ordering of the users is preserved whenever a MPIM group is returned.
       # @see https://api.slack.com/methods/mpim.open
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.open.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/mpim.open.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.open.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.open.json
       def mpim_open(options={})
         throw ArgumentError.new("Required arguments :users missing") if options[:users].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]

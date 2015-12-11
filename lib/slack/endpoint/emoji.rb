@@ -7,8 +7,8 @@ module Slack
       # This method lists the custom emoji for a team.
       #
       # @see https://api.slack.com/methods/emoji.list
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/emoji.list.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/emoji.list.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/emoji.list.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/emoji.list.json
       def emoji_list(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("emoji.list", options)

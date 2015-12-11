@@ -7,8 +7,8 @@ module Slack
       # This method checks authentication and tells you who you are.
       #
       # @see https://api.slack.com/methods/auth.test
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/auth.test.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/auth.test.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/auth.test.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/auth.test.json
       def auth_test(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("auth.test", options)

@@ -9,8 +9,8 @@ module Slack
       # @option options [Object] :file
       #   ID of file to delete.
       # @see https://api.slack.com/methods/files.delete
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.delete.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.delete.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.delete.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.delete.json
       def files_delete(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -27,8 +27,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/files.info
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.info.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.info.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.info.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.info.json
       def files_info(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -63,8 +63,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/files.list
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.list.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.list.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.list.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.list.json
       def files_list(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.list", options)
@@ -88,8 +88,8 @@ module Slack
       # @option options [Object] :channels
       #   Comma separated list of channels to share the file into.
       # @see https://api.slack.com/methods/files.upload
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.upload.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/files.upload.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.upload.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.upload.json
       def files_upload(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.upload", options)

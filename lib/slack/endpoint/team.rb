@@ -11,8 +11,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/team.accessLogs
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/team.accessLogs.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/team.accessLogs.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.accessLogs.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.accessLogs.json
       def team_accessLogs(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.accessLogs", options)
@@ -22,8 +22,8 @@ module Slack
       # This method provides information about your team.
       #
       # @see https://api.slack.com/methods/team.info
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/team.info.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/team.info.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.info.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.info.json
       def team_info(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.info", options)
@@ -45,8 +45,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/team.integrationLogs
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/team.integrationLogs.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/team.integrationLogs.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.integrationLogs.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.integrationLogs.json
       def team_integrationLogs(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.integrationLogs", options)

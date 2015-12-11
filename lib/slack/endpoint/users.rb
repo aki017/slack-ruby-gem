@@ -10,8 +10,8 @@ module Slack
       # @option options [Object] :user
       #   User to get presence info on. Defaults to the authed user.
       # @see https://api.slack.com/methods/users.getPresence
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.getPresence.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.getPresence.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.getPresence.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.getPresence.json
       def users_getPresence(options={})
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -24,8 +24,8 @@ module Slack
       # @option options [Object] :user
       #   User to get info on
       # @see https://api.slack.com/methods/users.info
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.info.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.info.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.info.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.info.json
       def users_info(options={})
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -38,8 +38,8 @@ module Slack
       # @option options [Object] :presence
       #   Whether to include presence data in the output
       # @see https://api.slack.com/methods/users.list
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.list.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.list.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.list.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.list.json
       def users_list(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.list", options)
@@ -51,8 +51,8 @@ module Slack
       # more details.
       #
       # @see https://api.slack.com/methods/users.setActive
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setActive.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setActive.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setActive.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setActive.json
       def users_setActive(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.setActive", options)
@@ -65,8 +65,8 @@ module Slack
       # @option options [Object] :presence
       #   Either auto or away
       # @see https://api.slack.com/methods/users.setPresence
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setPresence.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/users.setPresence.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPresence.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPresence.json
       def users_setPresence(options={})
         throw ArgumentError.new("Required arguments :presence missing") if options[:presence].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]

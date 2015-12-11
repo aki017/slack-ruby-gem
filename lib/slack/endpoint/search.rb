@@ -19,8 +19,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/search.all
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.all.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.all.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/search.all.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/search.all.json
       def search_all(options={})
         throw ArgumentError.new("Required arguments :query missing") if options[:query].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -43,8 +43,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/search.files
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.files.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.files.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/search.files.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/search.files.json
       def search_files(options={})
         throw ArgumentError.new("Required arguments :query missing") if options[:query].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
@@ -67,8 +67,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/search.messages
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.messages.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/search.messages.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/search.messages.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/search.messages.json
       def search_messages(options={})
         throw ArgumentError.new("Required arguments :query missing") if options[:query].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]

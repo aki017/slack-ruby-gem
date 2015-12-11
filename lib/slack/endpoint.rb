@@ -16,6 +16,7 @@ require_relative 'endpoint/reactions'
 require_relative 'endpoint/search'
 require_relative 'endpoint/stars'
 require_relative 'endpoint/team'
+require_relative 'endpoint/usergroups'
 require_relative 'endpoint/users'
 
 module Slack
@@ -36,6 +37,7 @@ module Slack
     include Search
     include Stars
     include Team
+    include Usergroups
     include Users
   end
 end

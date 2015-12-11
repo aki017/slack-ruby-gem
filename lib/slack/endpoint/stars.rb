@@ -16,8 +16,8 @@ module Slack
       # @option options [Object] :timestamp
       #   Timestamp of the message to add star to.
       # @see https://api.slack.com/methods/stars.add
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/stars.add.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/stars.add.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.add.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.add.json
       def stars_add(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("stars.add", options)
@@ -33,8 +33,8 @@ module Slack
       # @option options [Object] :page
       #   Page number of results to return.
       # @see https://api.slack.com/methods/stars.list
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/stars.list.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/stars.list.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.list.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.list.json
       def stars_list(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("stars.list", options)
@@ -53,8 +53,8 @@ module Slack
       # @option options [Object] :timestamp
       #   Timestamp of the message to remove star from.
       # @see https://api.slack.com/methods/stars.remove
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/stars.remove.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/stars.remove.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.remove.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.remove.json
       def stars_remove(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("stars.remove", options)

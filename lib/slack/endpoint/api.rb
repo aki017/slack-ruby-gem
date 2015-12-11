@@ -11,8 +11,8 @@ module Slack
       # @option options [Object] :foo
       #   example property to return
       # @see https://api.slack.com/methods/api.test
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/api.test.md
-      # @see https://github.com/slackhq/slack-api-docs/blob/master/methods/api.test.json
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/api.test.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/api.test.json
       def api_test(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("api.test", options)
