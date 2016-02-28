@@ -32,9 +32,7 @@ module Slack
       end
 
       #
-      # This method returns a portion of messages/events from the specified channel.
-      # To read the entire history for a channel, call the method with no latest or
-      # oldest arguments, and then continue paging using the instructions below.
+      # This method returns a portion of message events from the specified channel.
       #
       # @option options [Object] :channel
       #   Channel to fetch history for.
@@ -135,9 +133,7 @@ module Slack
       end
 
       #
-      # This method returns a list of all channels in the team. This includes channels the caller is in, channels
-      # they are not currently in, and archived channels. The number of (non-deactivated) members in each channel
-      # is also returned.
+      # This method returns a list of all channels in the team. This includes channels the caller is in, channels they are not currently in, and archived channels but does not include private channels. The number of (non-deactivated) members in each channel is also returned.
       #
       # @option options [Object] :exclude_archived
       #   Don't return archived channels.

@@ -4,6 +4,7 @@ require_relative 'endpoint/api'
 require_relative 'endpoint/auth'
 require_relative 'endpoint/channels'
 require_relative 'endpoint/chat'
+require_relative 'endpoint/dnd'
 require_relative 'endpoint/emoji'
 require_relative 'endpoint/files'
 require_relative 'endpoint/groups'
@@ -25,6 +26,7 @@ module Slack
     include Auth
     include Channels
     include Chat
+    include Dnd
     include Emoji
     include Files
     include Groups
