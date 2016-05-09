@@ -10,6 +10,8 @@ module Slack
       #   Timestamp of the message to be deleted.
       # @option options [Object] :channel
       #   Channel containing the message to be deleted.
+      # @option options [Object] :as_user
+      #   Pass true to delete the message as the authed user. Bot users in this context are considered authed users.
       # @see https://api.slack.com/methods/chat.delete
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.delete.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.delete.json

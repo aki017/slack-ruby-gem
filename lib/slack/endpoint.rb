@@ -14,6 +14,7 @@ require_relative 'endpoint/oauth'
 require_relative 'endpoint/pins'
 require_relative 'endpoint/presence'
 require_relative 'endpoint/reactions'
+require_relative 'endpoint/reminders'
 require_relative 'endpoint/search'
 require_relative 'endpoint/stars'
 require_relative 'endpoint/team'
@@ -36,6 +37,7 @@ module Slack
     include Pins
     include Presence
     include Reactions
+    include Reminders
     include Search
     include Stars
     include Team
