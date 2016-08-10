@@ -19,6 +19,20 @@ module Slack
       end
 
       #
+      # This method lists billable information for each user on the team. Currently this consists solely of whether the user is
+      # subject to billing per Slack's Fair Billing policy.
+      #
+      # @option options [Object] :user
+      #   A user to retrieve the billable information for. Defaults to all users.
+      # @see https://api.slack.com/methods/team.billableInfo
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.billableInfo.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.billableInfo.json
+      def team_billableInfo(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("team.billableInfo", options)
+      end
+
+      #
       # This method provides information about your team.
       #
       # @see https://api.slack.com/methods/team.info
@@ -50,6 +64,19 @@ module Slack
       def team_integrationLogs(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.integrationLogs", options)
+      end
+
+      #
+      # This method is used to get the profile field definitions for this team.
+      #
+      # @option options [Object] :visibility
+      #   Filter by visibility.
+      # @see https://api.slack.com/methods/team.profile
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.json
+      def team_profile(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("team.profile", options)
       end
 
     end

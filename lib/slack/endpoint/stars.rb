@@ -24,10 +24,8 @@ module Slack
       end
 
       #
-      # This method lists the items starred by a user.
+      # This method lists the items starred by the authed user.
       #
-      # @option options [Object] :user
-      #   Show stars by this user. Defaults to the authed user.
       # @option options [Object] :count
       #   Number of items to return per page.
       # @option options [Object] :page

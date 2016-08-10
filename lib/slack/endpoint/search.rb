@@ -4,7 +4,7 @@ module Slack
   module Endpoint
     module Search
       #
-      # This method allows to to search both messages and files in a single call.
+      # This method allows users and applications to search both messages and files in a single call.
       #
       # @option options [Object] :query
       #   Search query. May contains booleans, etc.

@@ -23,12 +23,29 @@ module Slack
       end
 
       #
-      # This method posts a message to a public channel, private group, or IM channel.
+      # This method sends a me message to a channel from the calling user.
+      #
+      # @option options [Object] :channel
+      #   Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name.
+      # @option options [Object] :text
+      #   Text of the message to send.
+      # @see https://api.slack.com/methods/chat.meMessage
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.meMessage.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.meMessage.json
+      def chat_meMessage(options={})
+        throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("chat.meMessage", options)
+      end
+
+      #
+      # This method posts a message to a public channel, private channel, or direct message/IM channel.
       #
       # @option options [Object] :channel
       #   Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See below for more details.
       # @option options [Object] :text
-      #   Text of the message to send. See below for an explanation of formatting.
+      #   Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead.
       # @option options [Object] :parse
       #   Change how messages are treated. Defaults to none. See below.
       # @option options [Object] :link_names

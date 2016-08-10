@@ -19,6 +19,17 @@ module Slack
       end
 
       #
+      # After your Slack app is awarded an identity token through Sign in with Slack, use this method to retrieve a user's identity.
+      #
+      # @see https://api.slack.com/methods/users.identity
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.identity.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.identity.json
+      def users_identity(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("users.identity", options)
+      end
+
+      #
       # This method returns information about a team member.
       #
       # @option options [Object] :user
@@ -43,6 +54,25 @@ module Slack
       def users_list(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.list", options)
+      end
+
+      #
+      # This method is used to set the profile information for a user.
+      #
+      # @option options [Object] :user
+      #   ID of user to change. This argument may only be specified by team admins.
+      # @option options [Object] :profile
+      #   Collection of key:value pairs presented as a URL-encoded JSON hash.
+      # @option options [Object] :name
+      #   Name of a single key to set. Usable only if profile is not passed.
+      # @option options [Object] :value
+      #   Value to set a single key to. Usable only if profile is not passed.
+      # @see https://api.slack.com/methods/users.profile
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.json
+      def users_profile(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("users.profile", options)
       end
 
       #

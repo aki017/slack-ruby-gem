@@ -71,7 +71,7 @@ module Slack
       #   
       #   
       #   all - All files
-      #   posts - Posts
+      #   spaces - Posts
       #   snippets - Snippets
       #   images - Image files
       #   gdocs - Google docs
@@ -79,7 +79,7 @@ module Slack
       #   pdfs - PDF files
       #   
       #   
-      #   You can pass multiple values in the types argument, like types=posts,snippets.The default value is all, which does not filter the list.
+      #   You can pass multiple values in the types argument, like types=spaces,snippets.The default value is all, which does not filter the list.
       # @option options [Object] :count
       #   Number of items to return per page.
       # @option options [Object] :page
@@ -118,6 +118,20 @@ module Slack
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.sharedPublicURL", options)
+      end
+
+      #
+      # This is for starting the upload process of a file. It only requires a filename, and gives back a ticket ID so that later, the upload can be found
+      # and updated with all the remaining file info.
+      #
+      # @option options [Object] :file
+      #   File contents via multipart/form-data.
+      # @see https://api.slack.com/methods/files.startPartialUpload
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.startPartialUpload.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.startPartialUpload.json
+      def files_startPartialUpload(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("files.startPartialUpload", options)
       end
 
       #

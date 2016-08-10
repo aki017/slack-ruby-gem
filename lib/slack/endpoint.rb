@@ -2,6 +2,7 @@
 #
 require_relative 'endpoint/api'
 require_relative 'endpoint/auth'
+require_relative 'endpoint/bots'
 require_relative 'endpoint/channels'
 require_relative 'endpoint/chat'
 require_relative 'endpoint/dnd'
@@ -25,6 +26,7 @@ module Slack
   module Endpoint
     include Api
     include Auth
+    include Bots
     include Channels
     include Chat
     include Dnd
