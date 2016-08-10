@@ -1,6 +1,8 @@
 rvm:
-  - 2.1
-  - 2.2
+  - 2.1.10
+  - 2.2.5
+  - 2.3.1
+  - jruby-9.1.2.0
 
 git:
   submodules: false
