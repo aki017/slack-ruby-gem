@@ -31,11 +31,7 @@ module Slack
           end
 
           ws.on :close do |event|
-            if !@callbacks[:close].nil?
-              @callbacks[:close].each do |c|
-                c.call
-              end
-            end
+            @callbacks[:close].each { |c| c.call } unless @callbacks[:close].nil?
             EM.stop
           end
         end
