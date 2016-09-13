@@ -22,7 +22,7 @@ puts
 channels.each do |c|
   puts "- id: #{c["id"]}, name: #{c["name"]}"
 
-  # Get channel histry
+  # Get channel history
   messages = client.channels_history(channel: "#{c["id"]}")["messages"]
   messages.each do |message|
     user_name = users[message["user"]]
