@@ -5,10 +5,12 @@ require_relative 'endpoint/auth'
 require_relative 'endpoint/bots'
 require_relative 'endpoint/channels'
 require_relative 'endpoint/chat'
+require_relative 'endpoint/discovery'
 require_relative 'endpoint/dnd'
 require_relative 'endpoint/emoji'
 require_relative 'endpoint/files'
 require_relative 'endpoint/groups'
+require_relative 'endpoint/idpgroups'
 require_relative 'endpoint/im'
 require_relative 'endpoint/mpim'
 require_relative 'endpoint/oauth'
@@ -29,10 +31,12 @@ module Slack
     include Bots
     include Channels
     include Chat
+    include Discovery
     include Dnd
     include Emoji
     include Files
     include Groups
+    include Idpgroups
     include Im
     include Mpim
     include Oauth

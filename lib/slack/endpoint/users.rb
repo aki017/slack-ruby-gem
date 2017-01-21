@@ -4,6 +4,17 @@ module Slack
   module Endpoint
     module Users
       #
+      # This method allows the user to delete their profile image. It will clear whatever image is currently set.
+      #
+      # @see https://api.slack.com/methods/users.deletePhoto
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.deletePhoto.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.deletePhoto.json
+      def users_deletePhoto(options={})
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("users.deletePhoto", options)
+      end
+
+      #
       # This method lets you find out information about a user's presence.
       # Consult the presence documentation for more details.
       #
@@ -60,7 +71,7 @@ module Slack
       # This method is used to set the profile information for a user.
       #
       # @option options [Object] :user
-      #   ID of user to change. This argument may only be specified by team admins.
+      #   ID of user to change. This argument may only be specified by team admins on paid teams.
       # @option options [Object] :profile
       #   Collection of key:value pairs presented as a URL-encoded JSON hash.
       # @option options [Object] :name
@@ -86,6 +97,26 @@ module Slack
       def users_setActive(options={})
         options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.setActive", options)
+      end
+
+      #
+      # This method allows the user to set their profile image. The caller can pass image data via image.
+      #
+      # @option options [Object] :image
+      #   File contents via multipart/form-data.
+      # @option options [Object] :crop_x
+      #   X coordinate of top-left corner of crop box
+      # @option options [Object] :crop_y
+      #   Y coordinate of top-left corner of crop box
+      # @option options [Object] :crop_w
+      #   Width/height of crop box (always square)
+      # @see https://api.slack.com/methods/users.setPhoto
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPhoto.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPhoto.json
+      def users_setPhoto(options={})
+        throw ArgumentError.new("Required arguments :image missing") if options[:image].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("users.setPhoto", options)
       end
 
       #
