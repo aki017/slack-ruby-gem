@@ -10,6 +10,8 @@ module Slack
       #   Number of items to return per page.
       # @option options [Object] :page
       #   Page number of results to return.
+      # @option options [Object] :before
+      #   End of time range of logs to include in results (inclusive).
       # @see https://api.slack.com/methods/team.accessLogs
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.accessLogs.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.accessLogs.json

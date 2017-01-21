@@ -210,6 +210,23 @@ module Slack
       end
 
       #
+      # This method returns an entire thread (a message plus all the messages in reply to it).
+      #
+      # @option options [Object] :channel
+      #   Private channel to fetch thread from
+      # @option options [Object] :thread_ts
+      #   Unique identifier of a thread's parent message
+      # @see https://api.slack.com/methods/groups.replies
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/groups.replies.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/groups.replies.json
+      def groups_replies(options={})
+        throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        throw ArgumentError.new("Required arguments :thread_ts missing") if options[:thread_ts].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("groups.replies", options)
+      end
+
+      #
       # This method is used to change the purpose of a private channel. The calling user must be a member of the private channel.
       #
       # @option options [Object] :channel

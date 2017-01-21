@@ -85,6 +85,23 @@ module Slack
         post("mpim.open", options)
       end
 
+      #
+      # This method returns an entire thread (a message plus all the messages in reply to it).
+      #
+      # @option options [Object] :channel
+      #   Multiparty direct message channel to fetch thread from.
+      # @option options [Object] :thread_ts
+      #   Unique identifier of a thread's parent message.
+      # @see https://api.slack.com/methods/mpim.replies
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.replies.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.replies.json
+      def mpim_replies(options={})
+        throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        throw ArgumentError.new("Required arguments :thread_ts missing") if options[:thread_ts].nil?
+        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        post("mpim.replies", options)
+      end
+
     end
   end
 end
