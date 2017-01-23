@@ -1,11 +1,12 @@
 rvm:
-  - 2.1.10
-  - 2.2.5
-  - 2.3.1
-  - jruby-9.1.2.0
+  - 2.2.6
+  - 2.3.3
+  - 2.4.0
+  - jruby-9.1.7.0
 
 git:
   submodules: false
 
 before_install:
+  - gem update --system
   - gem update bundler
