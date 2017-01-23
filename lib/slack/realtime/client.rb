@@ -16,7 +16,7 @@ module Slack
 
       def start
         EM.run do
-          ws = Faye::WebSocket::Client.new(@url)
+          ws = Faye::WebSocket::Client.new(@url, nil, ping: 30)
 
           ws.on :open do |event|
           end
