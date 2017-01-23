@@ -1,13 +1,26 @@
+language: ruby
+
 rvm:
   - 2.1.10
   - 2.2.6
   - 2.3.3
   - 2.4.0
+  - ruby-head
   - jruby-9.1.7.0
+  - jruby-head
 
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-9.1.7.0
+    - rvm: jruby-head
 git:
   submodules: false
 
 before_install:
   - gem update --system
   - gem update bundler
+
+cache: bundler
+
+sudo: false
