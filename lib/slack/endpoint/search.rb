@@ -13,7 +13,7 @@ module Slack
       # @option options [Object] :sort_dir
       #   Change sort direction to ascending (asc) or descending (desc).
       # @option options [Object] :highlight
-      #   Pass a value of 1 to enable query highlight markers (see below).
+      #   Pass a value of true to enable query highlight markers (see below).
       # @option options [Object] :count
       #   Number of items to return per page.
       # @option options [Object] :page
@@ -37,7 +37,7 @@ module Slack
       # @option options [Object] :sort_dir
       #   Change sort direction to ascending (asc) or descending (desc).
       # @option options [Object] :highlight
-      #   Pass a value of 1 to enable query highlight markers (see below).
+      #   Pass a value of true to enable query highlight markers (see below).
       # @option options [Object] :count
       #   Number of items to return per page.
       # @option options [Object] :page
@@ -61,7 +61,7 @@ module Slack
       # @option options [Object] :sort_dir
       #   Change sort direction to ascending (asc) or descending (desc).
       # @option options [Object] :highlight
-      #   Pass a value of 1 to enable query highlight markers (see below).
+      #   Pass a value of true to enable query highlight markers (see below).
       # @option options [Object] :count
       #   Number of items to return per page.
       # @option options [Object] :page
