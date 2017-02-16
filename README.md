@@ -39,10 +39,6 @@ Slack.auth_test
 
 [https://github.com/aki017/slack-ruby-gem/tree/dev/examples](https://github.com/aki017/slack-ruby-gem/tree/dev/examples)
 
-## RTM
-
-[Slack Bot Real Time Messaging API Integration in Ruby Tutorial](http://code.dblock.org/2015/04/28/slack-bot-real-time-messaging-api-integration-tutorial.html) thanks @dblock
-
 ## Contributing
 
 1. Fork it ( http://github.com/aki017/slack-ruby-gem/fork )
