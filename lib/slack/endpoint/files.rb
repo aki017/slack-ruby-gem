@@ -19,7 +19,6 @@ module Slack
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         throw ArgumentError.new("Required arguments :id missing") if options[:id].nil?
         throw ArgumentError.new("Required arguments :comment missing") if options[:comment].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.comments", options)
       end
 
@@ -33,7 +32,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.delete.json
       def files_delete(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.delete", options)
       end
 
@@ -51,7 +49,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.info.json
       def files_info(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.info", options)
       end
 
@@ -88,7 +85,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.list.json
       def files_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.list", options)
       end
 
@@ -102,7 +98,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.revokePublicURL.json
       def files_revokePublicURL(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.revokePublicURL", options)
       end
 
@@ -116,7 +111,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.sharedPublicURL.json
       def files_sharedPublicURL(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.sharedPublicURL", options)
       end
 
@@ -130,7 +124,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.startPartialUpload.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.startPartialUpload.json
       def files_startPartialUpload(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.startPartialUpload", options)
       end
 
@@ -156,7 +149,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.upload.json
       def files_upload(options={})
         throw ArgumentError.new("Required arguments :filename missing") if options[:filename].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("files.upload", options)
       end
 

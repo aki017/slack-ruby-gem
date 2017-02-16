@@ -22,7 +22,6 @@ module Slack
         throw ArgumentError.new("Required arguments :client_id missing") if options[:client_id].nil?
         throw ArgumentError.new("Required arguments :client_secret missing") if options[:client_secret].nil?
         throw ArgumentError.new("Required arguments :code missing") if options[:code].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("oauth.access", options)
       end
 

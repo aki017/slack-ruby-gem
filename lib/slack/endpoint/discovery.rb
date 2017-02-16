@@ -13,7 +13,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/discovery.file.json
       def discovery_file(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("discovery.file", options)
       end
 

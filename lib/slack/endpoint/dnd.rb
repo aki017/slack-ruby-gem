@@ -10,7 +10,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.endDnd.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.endDnd.json
       def dnd_endDnd(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("dnd.endDnd", options)
       end
 
@@ -21,7 +20,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.endSnooze.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.endSnooze.json
       def dnd_endSnooze(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("dnd.endSnooze", options)
       end
 
@@ -34,7 +32,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.info.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.info.json
       def dnd_info(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("dnd.info", options)
       end
 
@@ -48,7 +45,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.setSnooze.json
       def dnd_setSnooze(options={})
         throw ArgumentError.new("Required arguments :num_minutes missing") if options[:num_minutes].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("dnd.setSnooze", options)
       end
 
@@ -61,7 +57,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.teamInfo.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/dnd.teamInfo.json
       def dnd_teamInfo(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("dnd.teamInfo", options)
       end
 

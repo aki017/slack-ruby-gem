@@ -13,7 +13,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.close.json
       def mpim_close(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("mpim.close", options)
       end
 
@@ -39,7 +38,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.history.json
       def mpim_history(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("mpim.history", options)
       end
 
@@ -50,7 +48,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.list.json
       def mpim_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("mpim.list", options)
       end
 
@@ -67,7 +64,6 @@ module Slack
       def mpim_mark(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("mpim.mark", options)
       end
 
@@ -81,7 +77,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/mpim.open.json
       def mpim_open(options={})
         throw ArgumentError.new("Required arguments :users missing") if options[:users].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("mpim.open", options)
       end
 
@@ -98,7 +93,6 @@ module Slack
       def mpim_replies(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :thread_ts missing") if options[:thread_ts].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("mpim.replies", options)
       end
 

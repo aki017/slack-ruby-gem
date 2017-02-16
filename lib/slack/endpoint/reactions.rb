@@ -22,7 +22,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reactions.add.json
       def reactions_add(options={})
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reactions.add", options)
       end
 
@@ -43,7 +42,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reactions.get.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reactions.get.json
       def reactions_get(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reactions.get", options)
       end
 
@@ -62,7 +60,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reactions.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reactions.list.json
       def reactions_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reactions.list", options)
       end
 
@@ -85,7 +82,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reactions.remove.json
       def reactions_remove(options={})
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reactions.remove", options)
       end
 

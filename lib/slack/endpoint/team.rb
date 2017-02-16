@@ -16,7 +16,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.accessLogs.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.accessLogs.json
       def team_accessLogs(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.accessLogs", options)
       end
 
@@ -30,7 +29,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.billableInfo.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.billableInfo.json
       def team_billableInfo(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.billableInfo", options)
       end
 
@@ -41,7 +39,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.info.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.info.json
       def team_info(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.info", options)
       end
 
@@ -64,7 +61,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.integrationLogs.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.integrationLogs.json
       def team_integrationLogs(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.integrationLogs", options)
       end
 
@@ -77,7 +73,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.json
       def team_profile(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("team.profile", options)
       end
 

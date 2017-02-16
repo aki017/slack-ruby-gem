@@ -21,7 +21,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.create.json
       def usergroups_create(options={})
         throw ArgumentError.new("Required arguments :name missing") if options[:name].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("usergroups.create", options)
       end
 
@@ -37,7 +36,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.disable.json
       def usergroups_disable(options={})
         throw ArgumentError.new("Required arguments :usergroup missing") if options[:usergroup].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("usergroups.disable", options)
       end
 
@@ -53,7 +51,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.enable.json
       def usergroups_enable(options={})
         throw ArgumentError.new("Required arguments :usergroup missing") if options[:usergroup].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("usergroups.enable", options)
       end
 
@@ -70,7 +67,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.list.json
       def usergroups_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("usergroups.list", options)
       end
 
@@ -94,7 +90,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.update.json
       def usergroups_update(options={})
         throw ArgumentError.new("Required arguments :usergroup missing") if options[:usergroup].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("usergroups.update", options)
       end
 
@@ -113,7 +108,6 @@ module Slack
       def usergroups_users(options={})
         throw ArgumentError.new("Required arguments :usergroup missing") if options[:usergroup].nil?
         throw ArgumentError.new("Required arguments :users missing") if options[:users].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("usergroups.users", options)
       end
 

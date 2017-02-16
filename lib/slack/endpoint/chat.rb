@@ -18,7 +18,6 @@ module Slack
       def chat_delete(options={})
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("chat.delete", options)
       end
 
@@ -35,7 +34,6 @@ module Slack
       def chat_meMessage(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("chat.meMessage", options)
       end
 
@@ -74,7 +72,7 @@ module Slack
       def chat_postMessage(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        options[:attachments] = options[:attachments].to_json if options[:attachments].is_a?(Array) || options[:attachments].is_a?(Hash)
         post("chat.postMessage", options)
       end
 
@@ -102,7 +100,7 @@ module Slack
         throw ArgumentError.new("Required arguments :ts missing") if options[:ts].nil?
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
         throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+        options[:attachments] = options[:attachments].to_json if options[:attachments].is_a?(Array) || options[:attachments].is_a?(Hash)
         post("chat.update", options)
       end
 

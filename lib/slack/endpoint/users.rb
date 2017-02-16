@@ -10,7 +10,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.deletePhoto.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.deletePhoto.json
       def users_deletePhoto(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.deletePhoto", options)
       end
 
@@ -25,7 +24,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.getPresence.json
       def users_getPresence(options={})
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.getPresence", options)
       end
 
@@ -36,7 +34,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.identity.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.identity.json
       def users_identity(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.identity", options)
       end
 
@@ -50,7 +47,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.info.json
       def users_info(options={})
         throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.info", options)
       end
 
@@ -63,7 +59,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.list.json
       def users_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.list", options)
       end
 
@@ -82,7 +77,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.json
       def users_profile(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.profile", options)
       end
 
@@ -95,7 +89,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setActive.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setActive.json
       def users_setActive(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.setActive", options)
       end
 
@@ -115,7 +108,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPhoto.json
       def users_setPhoto(options={})
         throw ArgumentError.new("Required arguments :image missing") if options[:image].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.setPhoto", options)
       end
 
@@ -130,7 +122,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPresence.json
       def users_setPresence(options={})
         throw ArgumentError.new("Required arguments :presence missing") if options[:presence].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("users.setPresence", options)
       end
 

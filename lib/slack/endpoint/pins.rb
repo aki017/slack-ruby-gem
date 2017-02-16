@@ -20,7 +20,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.add.json
       def pins_add(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("pins.add", options)
       end
 
@@ -34,7 +33,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.list.json
       def pins_list(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("pins.list", options)
       end
 
@@ -55,7 +53,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/pins.remove.json
       def pins_remove(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("pins.remove", options)
       end
 

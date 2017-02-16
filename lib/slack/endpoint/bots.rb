@@ -12,7 +12,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/bots.info.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/bots.info.json
       def bots_info(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("bots.info", options)
       end
 

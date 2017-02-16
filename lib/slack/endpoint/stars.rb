@@ -19,7 +19,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.add.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.add.json
       def stars_add(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("stars.add", options)
       end
 
@@ -34,7 +33,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.list.json
       def stars_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("stars.list", options)
       end
 
@@ -54,7 +52,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.remove.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/stars.remove.json
       def stars_remove(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("stars.remove", options)
       end
 

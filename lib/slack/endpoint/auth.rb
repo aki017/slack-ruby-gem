@@ -12,7 +12,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/auth.revoke.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/auth.revoke.json
       def auth_revoke(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("auth.revoke", options)
       end
 
@@ -23,7 +22,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/auth.test.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/auth.test.json
       def auth_test(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("auth.test", options)
       end
 

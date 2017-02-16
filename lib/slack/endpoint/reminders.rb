@@ -18,7 +18,6 @@ module Slack
       def reminders_add(options={})
         throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
         throw ArgumentError.new("Required arguments :time missing") if options[:time].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reminders.add", options)
       end
 
@@ -32,7 +31,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reminders.complete.json
       def reminders_complete(options={})
         throw ArgumentError.new("Required arguments :reminder missing") if options[:reminder].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reminders.complete", options)
       end
 
@@ -46,7 +44,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reminders.delete.json
       def reminders_delete(options={})
         throw ArgumentError.new("Required arguments :reminder missing") if options[:reminder].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reminders.delete", options)
       end
 
@@ -60,7 +57,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reminders.info.json
       def reminders_info(options={})
         throw ArgumentError.new("Required arguments :reminder missing") if options[:reminder].nil?
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reminders.info", options)
       end
 
@@ -71,7 +67,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reminders.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/reminders.list.json
       def reminders_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("reminders.list", options)
       end
 

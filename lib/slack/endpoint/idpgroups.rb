@@ -12,7 +12,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/idpgroups.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/idpgroups.list.json
       def idpgroups_list(options={})
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
         post("idpgroups.list", options)
       end
 
