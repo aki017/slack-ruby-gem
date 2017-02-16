@@ -22,7 +22,9 @@ module Slack
 <% data["args"].reject{|k, v| k=="token"}.select{|k,v| v["required"]}.each do |arg_name, arg_v| %>
         throw ArgumentError.new("Required arguments :<%= arg_name %> missing") if options[:<%= arg_name %>].nil?
 <% end %>
-        options[:attachments] = options[:attachments].to_json if Hash === options[:attachments]
+<% if data["args"].key? "attachments" %>
+        options[:attachments] = options[:attachments].to_json if options[:attachments].is_a?(Array) || options[:attachments].is_a?(Hash)
+<% end %>
         post("<%= group %>.<%= name %>", options)
       end
 
