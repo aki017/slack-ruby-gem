@@ -71,7 +71,7 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.postMessage.json
       def chat_postMessage(options={})
         throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
-        throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
+        throw ArgumentError.new("Required arguments :text or :attachments missing") if options[:text].nil? && options[:attachments].nil?
         options[:attachments] = options[:attachments].to_json if options[:attachments].is_a?(Array) || options[:attachments].is_a?(Hash)
         post("chat.postMessage", options)
       end
