@@ -21,6 +21,8 @@ module Slack
       #
       # @option options [Object] :name
       #   Name of channel to create
+      # @option options [Object] :validate
+      #   Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
       # @see https://api.slack.com/methods/channels.create
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/channels.create.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/channels.create.json
@@ -87,6 +89,8 @@ module Slack
       #
       # @option options [Object] :name
       #   Name of channel to join
+      # @option options [Object] :validate
+      #   Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
       # @see https://api.slack.com/methods/channels.join
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/channels.join.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/channels.join.json
@@ -159,6 +163,8 @@ module Slack
       #   Channel to rename
       # @option options [Object] :name
       #   New name for channel.
+      # @option options [Object] :validate
+      #   Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.
       # @see https://api.slack.com/methods/channels.rename
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/channels.rename.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/channels.rename.json
