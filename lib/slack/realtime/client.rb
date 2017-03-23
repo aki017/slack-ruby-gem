@@ -6,7 +6,7 @@ module Slack
     class Client
       def initialize(rtm_start_response)
         @response = rtm_start_response
-        @url = rtm_start_response
+        @url = rtm_start_response["url"]
         @callbacks ||= {}
       end
 
@@ -37,7 +37,7 @@ module Slack
           end
         end
       end
-      
+
       def method_missing(method, *args, &block)
         return super if @response[method.to_s].nil?
         @response[method.to_s]
