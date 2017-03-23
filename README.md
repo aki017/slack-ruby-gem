@@ -1,4 +1,5 @@
 # Slack
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/aki017/slack-ruby-gem?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Gem Version](https://badge.fury.io/rb/slack-api.svg)](http://badge.fury.io/rb/slack-api)
 [![Build Status](https://travis-ci.org/aki017/slack-ruby-gem.svg)](https://travis-ci.org/aki017/slack-ruby-gem)
