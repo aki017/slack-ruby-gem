@@ -73,11 +73,11 @@ module Slack
       #   Name of a single key to set. Usable only if profile is not passed.
       # @option options [Object] :value
       #   Value to set a single key to. Usable only if profile is not passed.
-      # @see https://api.slack.com/methods/users.profile
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.md
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.json
-      def users_profile(options={})
-        post("users.profile", options)
+      # @see https://api.slack.com/methods/users.profile.set
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.set.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.set.json
+      def users_profile_set(options={})
+        post("users.profile.set", options)
       end
 
       #
