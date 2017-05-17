@@ -22,7 +22,7 @@ namespace :api do
 
     data = Dir.glob(jsons).sort.each_with_object({}) do |path, result|
       name = File.basename(path, ".json")
-      prefix, name = name.split(".")
+      prefix, name = name.split(".", 2)
       next if prefix == "rtm"
       result[prefix] ||= {}
 

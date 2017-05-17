@@ -18,7 +18,7 @@ module Slack
       # @see https://api.slack.com/methods/<%= group %>.<%= name %>
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/<%= group %>.<%= name %>.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/<%= group %>.<%= name %>.json
-      def <%= group %>_<%= name %>(options={})
+      def <%= group %>_<%= name.gsub(".", "_") %>(options={})
 <% data["args"].reject{|k, v| k=="token"}.select{|k,v| v["required"]}.each do |arg_name, arg_v| %>
 <% if group == "chat" && name == "postMessage" && arg_name == "text" %>
         throw ArgumentError.new("Required arguments :text or :attachments missing") if options[:<%= arg_name %>].nil? && options[:attachments].nil?
