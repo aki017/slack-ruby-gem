@@ -69,11 +69,11 @@ module Slack
       #
       # @option options [Object] :visibility
       #   Filter by visibility.
-      # @see https://api.slack.com/methods/team.profile
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.md
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.json
-      def team_profile(options={})
-        post("team.profile", options)
+      # @see https://api.slack.com/methods/team.profile.get
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.get.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/team.profile.get.json
+      def team_profile_get(options={})
+        post("team.profile.get", options)
       end
 
     end

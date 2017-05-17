@@ -4,6 +4,38 @@ module Slack
   module Endpoint
     module Files
       #
+      # Add a comment to an existing file.
+      #
+      # @option options [Object] :file
+      #   File to add a comment to.
+      # @option options [Object] :comment
+      #   Text of the comment to add.
+      # @see https://api.slack.com/methods/files.comments.add
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.add.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.add.json
+      def files_comments_add(options={})
+        throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
+        throw ArgumentError.new("Required arguments :comment missing") if options[:comment].nil?
+        post("files.comments.add", options)
+      end
+
+      #
+      # Delete an existing comment on a file. Only the original author of the comment or a Team Administrator may delete a file comment.
+      #
+      # @option options [Object] :file
+      #   File to delete a comment from.
+      # @option options [Object] :id
+      #   The comment to delete.
+      # @see https://api.slack.com/methods/files.comments.delete
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.delete.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.delete.json
+      def files_comments_delete(options={})
+        throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
+        throw ArgumentError.new("Required arguments :id missing") if options[:id].nil?
+        post("files.comments.delete", options)
+      end
+
+      #
       # Edit an existing comment on a file. Only the user who created a comment may make edits. Teams may configure a limited time window during which file comment edits are allowed.
       #
       # @option options [Object] :file
@@ -12,14 +44,14 @@ module Slack
       #   The comment to edit.
       # @option options [Object] :comment
       #   Text of the comment to edit.
-      # @see https://api.slack.com/methods/files.comments
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.md
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.json
-      def files_comments(options={})
+      # @see https://api.slack.com/methods/files.comments.edit
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.edit.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.edit.json
+      def files_comments_edit(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         throw ArgumentError.new("Required arguments :id missing") if options[:id].nil?
         throw ArgumentError.new("Required arguments :comment missing") if options[:comment].nil?
-        post("files.comments", options)
+        post("files.comments.edit", options)
       end
 
       #
@@ -148,7 +180,6 @@ module Slack
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.upload.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.upload.json
       def files_upload(options={})
-        throw ArgumentError.new("Required arguments :filename missing") if options[:filename].nil?
         post("files.upload", options)
       end
 

@@ -8,12 +8,25 @@ module Slack
       #
       # @option options [Object] :file
       #   Specify a file by providing its ID.
-      # @see https://api.slack.com/methods/discovery.file
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/discovery.file.md
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/discovery.file.json
-      def discovery_file(options={})
+      # @see https://api.slack.com/methods/discovery.file.restore
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/discovery.file.restore.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/discovery.file.restore.json
+      def discovery_file_restore(options={})
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
-        post("discovery.file", options)
+        post("discovery.file.restore", options)
+      end
+
+      #
+      # There is no documentation for this method.
+      #
+      # @option options [Object] :file
+      #   Specify a file by providing its ID.
+      # @see https://api.slack.com/methods/discovery.file.tombstone
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/discovery.file.tombstone.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/discovery.file.tombstone.json
+      def discovery_file_tombstone(options={})
+        throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
+        post("discovery.file.tombstone", options)
       end
 
     end

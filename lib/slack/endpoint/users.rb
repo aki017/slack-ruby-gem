@@ -63,7 +63,21 @@ module Slack
       end
 
       #
-      # This method is used to set the profile information for a user.
+      # Use this method to retrieve a user's profile information.
+      #
+      # @option options [Object] :user
+      #   User to retrieve profile info for
+      # @option options [Object] :include_labels
+      #   Include labels for each ID in custom profile fields
+      # @see https://api.slack.com/methods/users.profile.get
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.get.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.get.json
+      def users_profile_get(options={})
+        post("users.profile.get", options)
+      end
+
+      #
+      # Use this method to set a user's profile information, including name, email, current status, and other attributes.
       #
       # @option options [Object] :user
       #   ID of user to change. This argument may only be specified by team admins on paid teams.
@@ -73,11 +87,11 @@ module Slack
       #   Name of a single key to set. Usable only if profile is not passed.
       # @option options [Object] :value
       #   Value to set a single key to. Usable only if profile is not passed.
-      # @see https://api.slack.com/methods/users.profile
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.md
-      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.json
-      def users_profile(options={})
-        post("users.profile", options)
+      # @see https://api.slack.com/methods/users.profile.set
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.set.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.set.json
+      def users_profile_set(options={})
+        post("users.profile.set", options)
       end
 
       #
