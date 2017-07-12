@@ -8,12 +8,12 @@ module Slack
       #
       # @option options [Object] :name
       #   A name for the User Group. Must be unique among User Groups.
-      # @option options [Object] :handle
-      #   A mention handle. Must be unique among channels, users and User Groups.
-      # @option options [Object] :description
-      #   A short description of the User Group.
       # @option options [Object] :channels
       #   A comma separated string of encoded channel IDs for which the User Group uses as a default.
+      # @option options [Object] :description
+      #   A short description of the User Group.
+      # @option options [Object] :handle
+      #   A mention handle. Must be unique among channels, users and User Groups.
       # @option options [Object] :include_count
       #   Include the number of users in each User Group.
       # @see https://api.slack.com/methods/usergroups.create
@@ -57,10 +57,10 @@ module Slack
       #
       # This method returns a list of all User Groups in the team. This can optionally include disabled User Groups.
       #
-      # @option options [Object] :include_disabled
-      #   Include disabled User Groups.
       # @option options [Object] :include_count
       #   Include the number of users in each User Group.
+      # @option options [Object] :include_disabled
+      #   Include disabled User Groups.
       # @option options [Object] :include_users
       #   Include the list of users for each User Group.
       # @see https://api.slack.com/methods/usergroups.list
@@ -75,16 +75,16 @@ module Slack
       #
       # @option options [Object] :usergroup
       #   The encoded ID of the User Group to update.
-      # @option options [Object] :name
-      #   A name for the User Group. Must be unique among User Groups.
-      # @option options [Object] :handle
-      #   A mention handle. Must be unique among channels, users and User Groups.
-      # @option options [Object] :description
-      #   A short description of the User Group.
       # @option options [Object] :channels
       #   A comma separated string of encoded channel IDs for which the User Group uses as a default.
+      # @option options [Object] :description
+      #   A short description of the User Group.
+      # @option options [Object] :handle
+      #   A mention handle. Must be unique among channels, users and User Groups.
       # @option options [Object] :include_count
       #   Include the number of users in the User Group.
+      # @option options [Object] :name
+      #   A name for the User Group. Must be unique among User Groups.
       # @see https://api.slack.com/methods/usergroups.update
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.update.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/usergroups.update.json

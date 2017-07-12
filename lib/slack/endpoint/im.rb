@@ -23,14 +23,14 @@ module Slack
       #
       # @option options [Object] :channel
       #   Direct message channel to fetch history for.
+      # @option options [Object] :count
+      #   Number of messages to return, between 1 and 1000.
+      # @option options [Object] :inclusive
+      #   Include messages with latest or oldest timestamp in results.
       # @option options [Object] :latest
       #   End of time range of messages to include in results.
       # @option options [Object] :oldest
       #   Start of time range of messages to include in results.
-      # @option options [Object] :inclusive
-      #   Include messages with latest or oldest timestamp in results.
-      # @option options [Object] :count
-      #   Number of messages to return, between 1 and 1000.
       # @option options [Object] :unreads
       #   Include unread_count_display in the output?
       # @see https://api.slack.com/methods/im.history

@@ -7,12 +7,12 @@ module Slack
       # This method adds a star to an item (message, file, file comment, channel, private group, or DM) on behalf of the authenticated user.
       # One of file, file_comment, channel, or the combination of channel and timestamp must be specified.
       #
+      # @option options [Object] :channel
+      #   Channel to add star to, or channel where the message to add star to was posted (used with timestamp).
       # @option options [Object] :file
       #   File to add star to.
       # @option options [Object] :file_comment
       #   File comment to add star to.
-      # @option options [Object] :channel
-      #   Channel to add star to, or channel where the message to add star to was posted (used with timestamp).
       # @option options [Object] :timestamp
       #   Timestamp of the message to add star to.
       # @see https://api.slack.com/methods/stars.add
@@ -40,12 +40,12 @@ module Slack
       # This method removes a star from an item (message, file, file comment, channel, private group, or DM) on behalf of the authenticated user.
       # One of file, file_comment, channel, or the combination of channel and timestamp must be specified.
       #
+      # @option options [Object] :channel
+      #   Channel to remove star from, or channel where the message to remove star from was posted (used with timestamp).
       # @option options [Object] :file
       #   File to remove star from.
       # @option options [Object] :file_comment
       #   File comment to remove star from.
-      # @option options [Object] :channel
-      #   Channel to remove star from, or channel where the message to remove star from was posted (used with timestamp).
       # @option options [Object] :timestamp
       #   Timestamp of the message to remove star from.
       # @see https://api.slack.com/methods/stars.remove

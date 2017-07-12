@@ -6,16 +6,16 @@ module Slack
       #
       # Add a comment to an existing file.
       #
-      # @option options [Object] :file
-      #   File to add a comment to.
       # @option options [Object] :comment
       #   Text of the comment to add.
+      # @option options [Object] :file
+      #   File to add a comment to.
       # @see https://api.slack.com/methods/files.comments.add
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.add.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.add.json
       def files_comments_add(options={})
-        throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         throw ArgumentError.new("Required arguments :comment missing") if options[:comment].nil?
+        throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         post("files.comments.add", options)
       end
 
@@ -38,19 +38,19 @@ module Slack
       #
       # Edit an existing comment on a file. Only the user who created a comment may make edits. Teams may configure a limited time window during which file comment edits are allowed.
       #
+      # @option options [Object] :comment
+      #   Text of the comment to edit.
       # @option options [Object] :file
       #   File containing the comment to edit.
       # @option options [Object] :id
       #   The comment to edit.
-      # @option options [Object] :comment
-      #   Text of the comment to edit.
       # @see https://api.slack.com/methods/files.comments.edit
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.edit.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.comments.edit.json
       def files_comments_edit(options={})
+        throw ArgumentError.new("Required arguments :comment missing") if options[:comment].nil?
         throw ArgumentError.new("Required arguments :file missing") if options[:file].nil?
         throw ArgumentError.new("Required arguments :id missing") if options[:id].nil?
-        throw ArgumentError.new("Required arguments :comment missing") if options[:comment].nil?
         post("files.comments.edit", options)
       end
 
@@ -87,10 +87,12 @@ module Slack
       #
       # This method returns a list of files within the team. It can be filtered and sliced in various ways.
       #
-      # @option options [Object] :user
-      #   Filter files created by a single user.
       # @option options [Object] :channel
       #   Filter files appearing in a specific channel, indicated by its ID.
+      # @option options [Object] :count
+      #   Number of items to return per page.
+      # @option options [Object] :page
+      #   Page number of results to return.
       # @option options [Object] :ts_from
       #   Filter files created after this timestamp (inclusive).
       # @option options [Object] :ts_to
@@ -109,10 +111,8 @@ module Slack
       #   
       #   
       #   You can pass multiple values in the types argument, like types=spaces,snippets.The default value is all, which does not filter the list.
-      # @option options [Object] :count
-      #   Number of items to return per page.
-      # @option options [Object] :page
-      #   Page number of results to return.
+      # @option options [Object] :user
+      #   Filter files created by a single user.
       # @see https://api.slack.com/methods/files.list
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.list.json
@@ -162,20 +162,20 @@ module Slack
       #
       # This method allows you to create or upload an existing file.
       #
-      # @option options [Object] :file
-      #   File contents via multipart/form-data. If omitting this parameter, you must submit content.
-      # @option options [Object] :content
-      #   File contents via a POST variable. If omitting this parameter, you must provide a file.
-      # @option options [Object] :filetype
-      #   A file type identifier.
-      # @option options [Object] :filename
-      #   Filename of file.
-      # @option options [Object] :title
-      #   Title of file.
-      # @option options [Object] :initial_comment
-      #   Initial comment to add to file.
       # @option options [Object] :channels
       #   Comma-separated list of channel names or IDs where the file will be shared.
+      # @option options [Object] :content
+      #   File contents via a POST variable. If omitting this parameter, you must provide a file.
+      # @option options [Object] :file
+      #   File contents via multipart/form-data. If omitting this parameter, you must submit content.
+      # @option options [Object] :filename
+      #   Filename of file.
+      # @option options [Object] :filetype
+      #   A file type identifier.
+      # @option options [Object] :initial_comment
+      #   Initial comment to add to file.
+      # @option options [Object] :title
+      #   Title of file.
       # @see https://api.slack.com/methods/files.upload
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.upload.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/files.upload.json

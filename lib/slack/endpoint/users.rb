@@ -53,8 +53,12 @@ module Slack
       #
       # This method returns a list of all users in the team. This includes deleted/deactivated users.
       #
+      # @option options [Object] :cursor
+      #   Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for more detail.
+      # @option options [Object] :limit
+      #   The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
       # @option options [Object] :presence
-      #   Whether to include presence data in the output
+      #   Whether to include presence data in the output. Setting this to false improves performance, especially with large teams.
       # @see https://api.slack.com/methods/users.list
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.list.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.list.json
@@ -65,10 +69,10 @@ module Slack
       #
       # Use this method to retrieve a user's profile information.
       #
-      # @option options [Object] :user
-      #   User to retrieve profile info for
       # @option options [Object] :include_labels
       #   Include labels for each ID in custom profile fields
+      # @option options [Object] :user
+      #   User to retrieve profile info for
       # @see https://api.slack.com/methods/users.profile.get
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.get.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.profile.get.json
@@ -79,12 +83,12 @@ module Slack
       #
       # Use this method to set a user's profile information, including name, email, current status, and other attributes.
       #
-      # @option options [Object] :user
-      #   ID of user to change. This argument may only be specified by team admins on paid teams.
-      # @option options [Object] :profile
-      #   Collection of key:value pairs presented as a URL-encoded JSON hash.
       # @option options [Object] :name
       #   Name of a single key to set. Usable only if profile is not passed.
+      # @option options [Object] :profile
+      #   Collection of key:value pairs presented as a URL-encoded JSON hash.
+      # @option options [Object] :user
+      #   ID of user to change. This argument may only be specified by team admins on paid teams.
       # @option options [Object] :value
       #   Value to set a single key to. Usable only if profile is not passed.
       # @see https://api.slack.com/methods/users.profile.set
@@ -111,12 +115,12 @@ module Slack
       #
       # @option options [Object] :image
       #   File contents via multipart/form-data.
+      # @option options [Object] :crop_w
+      #   Width/height of crop box (always square)
       # @option options [Object] :crop_x
       #   X coordinate of top-left corner of crop box
       # @option options [Object] :crop_y
       #   Y coordinate of top-left corner of crop box
-      # @option options [Object] :crop_w
-      #   Width/height of crop box (always square)
       # @see https://api.slack.com/methods/users.setPhoto
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPhoto.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/users.setPhoto.json
