@@ -4,7 +4,7 @@ module Slack
   module Endpoint
     module Api
       #
-      # This method helps you test your calling code.
+      # Checks API calling code.
       #
       # @option options [Object] :error
       #   Error response to return

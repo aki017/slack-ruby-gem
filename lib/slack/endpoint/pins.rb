@@ -4,8 +4,7 @@ module Slack
   module Endpoint
     module Pins
       #
-      # This method pins an item (file, file comment, channel message, or group message) to a particular channel.
-      # The channel argument is required and one of file, file_comment, or timestamp must also be specified.
+      # Pins an item to a channel.
       #
       # @option options [Object] :channel
       #   Channel to pin the item in.
@@ -24,7 +23,7 @@ module Slack
       end
 
       #
-      # This method lists the items pinned to a channel.
+      # Lists items pinned to a channel.
       #
       # @option options [Object] :channel
       #   Channel to get pinned items for.
@@ -37,8 +36,7 @@ module Slack
       end
 
       #
-      # This method un-pins an item (file, file comment, channel message, or group message) from a channel.
-      # The channel argument is required and one of file, file_comment, or timestamp must also be specified.
+      # Un-pins an item from a channel.
       #
       # @option options [Object] :channel
       #   Channel where the item is pinned to.

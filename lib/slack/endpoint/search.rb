@@ -4,7 +4,7 @@ module Slack
   module Endpoint
     module Search
       #
-      # This method allows users and applications to search both messages and files in a single call.
+      # Searches for messages and files matching a query.
       #
       # @option options [Object] :query
       #   Search query. May contains booleans, etc.
@@ -27,7 +27,7 @@ module Slack
       end
 
       #
-      # This method returns files matching a search query.
+      # Searches for files matching a query.
       #
       # @option options [Object] :query
       #   Search query. May contain booleans, etc.
@@ -50,12 +50,12 @@ module Slack
       end
 
       #
-      # This method returns messages matching a search query.
+      # Searches for messages matching a query.
       #
       # @option options [Object] :query
       #   Search query. May contains booleans, etc.
       # @option options [Object] :count
-      #   Number of items to return per page.
+      #   Pass the number of results you want per "page". Maximum of 100.
       # @option options [Object] :highlight
       #   Pass a value of true to enable query highlight markers (see below).
       # @option options [Object] :page

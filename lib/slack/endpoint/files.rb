@@ -20,7 +20,7 @@ module Slack
       end
 
       #
-      # Delete an existing comment on a file. Only the original author of the comment or a Team Administrator may delete a file comment.
+      # Deletes an existing comment on a file.
       #
       # @option options [Object] :file
       #   File to delete a comment from.
@@ -36,7 +36,7 @@ module Slack
       end
 
       #
-      # Edit an existing comment on a file. Only the user who created a comment may make edits. Teams may configure a limited time window during which file comment edits are allowed.
+      # Edit an existing file comment.
       #
       # @option options [Object] :comment
       #   Text of the comment to edit.
@@ -55,7 +55,7 @@ module Slack
       end
 
       #
-      # This method deletes a file from your team.
+      # Deletes a file.
       #
       # @option options [Object] :file
       #   ID of file to delete.
@@ -68,7 +68,7 @@ module Slack
       end
 
       #
-      # This method returns information about a file in your team.
+      # Gets information about a team file.
       #
       # @option options [Object] :file
       #   Specify a file by providing its ID.
@@ -85,7 +85,7 @@ module Slack
       end
 
       #
-      # This method returns a list of files within the team. It can be filtered and sliced in various ways.
+      # Lists & filters team files.
       #
       # @option options [Object] :channel
       #   Filter files appearing in a specific channel, indicated by its ID.
@@ -121,7 +121,7 @@ module Slack
       end
 
       #
-      # This method disables public/external sharing for a file.
+      # Revokes public/external sharing access for a file
       #
       # @option options [Object] :file
       #   File to revoke
@@ -134,7 +134,7 @@ module Slack
       end
 
       #
-      # This method enables public/external sharing for a file.
+      # Enables a file for public/external sharing.
       #
       # @option options [Object] :file
       #   File to share
@@ -160,7 +160,7 @@ module Slack
       end
 
       #
-      # This method allows you to create or upload an existing file.
+      # Uploads or creates a file.
       #
       # @option options [Object] :channels
       #   Comma-separated list of channel names or IDs where the file will be shared.

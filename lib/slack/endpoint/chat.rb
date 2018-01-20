@@ -4,14 +4,14 @@ module Slack
   module Endpoint
     module Chat
       #
-      # This method deletes a message from a channel.
+      # Deletes a message.
       #
       # @option options [Object] :channel
       #   Channel containing the message to be deleted.
       # @option options [Object] :ts
       #   Timestamp of the message to be deleted.
       # @option options [Object] :as_user
-      #   Pass true to delete the message as the authed user. Bot users in this context are considered authed users.
+      #   Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the message will be deleted with chat:write:bot scope.
       # @see https://api.slack.com/methods/chat.delete
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.delete.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.delete.json
@@ -22,7 +22,23 @@ module Slack
       end
 
       #
-      # This method sends a me message to a channel from the calling user.
+      # Retrieve a permalink URL for a specific extant message
+      #
+      # @option options [Object] :channel
+      #   The ID of the conversation or channel containing the message
+      # @option options [Object] :message_ts
+      #   A message's ts value, uniquely identifying it within a channel
+      # @see https://api.slack.com/methods/chat.getPermalink
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.getPermalink.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.getPermalink.json
+      def chat_getPermalink(options={})
+        throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        throw ArgumentError.new("Required arguments :message_ts missing") if options[:message_ts].nil?
+        post("chat.getPermalink", options)
+      end
+
+      #
+      # Share a me message into a channel.
       #
       # @option options [Object] :channel
       #   Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name.
@@ -38,7 +54,35 @@ module Slack
       end
 
       #
-      # This method posts a message to a public channel, private channel, or direct message/IM channel.
+      # Sends an ephemeral message to a user in a channel.
+      #
+      # @option options [Object] :channel
+      #   Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
+      # @option options [Object] :text
+      #   Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead.
+      # @option options [Object] :user
+      #   id of the user who will receive the ephemeral message. The user should be in the channel specified by the channel argument.
+      # @option options [Object] :as_user
+      #   Pass true to post the message as the authed bot. Defaults to false.
+      # @option options [Object] :attachments
+      #   A JSON-based array of structured attachments, presented as a URL-encoded string.
+      # @option options [Object] :link_names
+      #   Find and link channel names and usernames.
+      # @option options [Object] :parse
+      #   Change how messages are treated. Defaults to none. See below.
+      # @see https://api.slack.com/methods/chat.postEphemeral
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.postEphemeral.md
+      # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.postEphemeral.json
+      def chat_postEphemeral(options={})
+        throw ArgumentError.new("Required arguments :channel missing") if options[:channel].nil?
+        throw ArgumentError.new("Required arguments :text missing") if options[:text].nil?
+        throw ArgumentError.new("Required arguments :user missing") if options[:user].nil?
+        options[:attachments] = options[:attachments].to_json if options[:attachments].is_a?(Array) || options[:attachments].is_a?(Hash)
+        post("chat.postEphemeral", options)
+      end
+
+      #
+      # Sends a message to a channel.
       #
       # @option options [Object] :channel
       #   Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See below for more details.
@@ -47,7 +91,7 @@ module Slack
       # @option options [Object] :as_user
       #   Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See authorship below.
       # @option options [Object] :attachments
-      #   Structured message attachments.
+      #   A JSON-based array of structured attachments, presented as a URL-encoded string.
       # @option options [Object] :icon_emoji
       #   Emoji to use as the icon for this message. Overrides icon_url. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below.
       # @option options [Object] :icon_url
@@ -77,16 +121,20 @@ module Slack
       end
 
       #
-      # This method attaches Slack app unfurl behavior to a specified and relevant message. A user token is required as this method does not support bot user tokens.
+      # Provide custom unfurl behavior for user-posted URLs
       #
       # @option options [Object] :channel
       #   Channel ID of the message
       # @option options [Object] :ts
-      #   Timestamp of the message to add unfurl behavior to
+      #   Timestamp of the message to add unfurl behavior to.
       # @option options [Object] :unfurls
-      #   JSON mapping a set of URLs from the message to their unfurl attachments
+      #   URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl message attachments.
+      # @option options [Object] :user_auth_message
+      #   Provide a simply-formatted string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior
       # @option options [Object] :user_auth_required
       #   Set to true or 1 to indicate the user must install your Slack app to trigger unfurls for this domain
+      # @option options [Object] :user_auth_url
+      #   Send users to this custom URL where they will complete authentication in your app to fully trigger unfurling. Value should be properly URL-encoded.
       # @see https://api.slack.com/methods/chat.unfurl
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.unfurl.md
       # @see https://github.com/aki017/slack-api-docs/blob/master/methods/chat.unfurl.json
@@ -98,18 +146,18 @@ module Slack
       end
 
       #
-      # This method updates a message in a channel. Though related to chat.postMessage, some parameters of chat.update are handled differently.
+      # Updates a message.
       #
       # @option options [Object] :channel
       #   Channel containing the message to be updated.
       # @option options [Object] :text
-      #   New text for the message, using the default formatting rules.
+      #   New text for the message, using the default formatting rules. It's not required when presenting attachments.
       # @option options [Object] :ts
       #   Timestamp of the message to be updated.
       # @option options [Object] :as_user
       #   Pass true to update the message as the authed user. Bot users in this context are considered authed users.
       # @option options [Object] :attachments
-      #   Structured message attachments.
+      #   A JSON-based array of structured attachments, presented as a URL-encoded string. This field is required when not presenting text.
       # @option options [Object] :link_names
       #   Find and link channel names and usernames. Defaults to none. This parameter should be used in conjunction with parse. To set link_names to 1, specify a parse mode of full.
       # @option options [Object] :parse

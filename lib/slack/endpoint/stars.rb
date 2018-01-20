@@ -4,8 +4,7 @@ module Slack
   module Endpoint
     module Stars
       #
-      # This method adds a star to an item (message, file, file comment, channel, private group, or DM) on behalf of the authenticated user.
-      # One of file, file_comment, channel, or the combination of channel and timestamp must be specified.
+      # Adds a star to an item.
       #
       # @option options [Object] :channel
       #   Channel to add star to, or channel where the message to add star to was posted (used with timestamp).
@@ -23,7 +22,7 @@ module Slack
       end
 
       #
-      # This method lists the items starred by the authed user.
+      # Lists stars for a user.
       #
       # @option options [Object] :count
       #   Number of items to return per page.
@@ -37,8 +36,7 @@ module Slack
       end
 
       #
-      # This method removes a star from an item (message, file, file comment, channel, private group, or DM) on behalf of the authenticated user.
-      # One of file, file_comment, channel, or the combination of channel and timestamp must be specified.
+      # Removes a star from an item.
       #
       # @option options [Object] :channel
       #   Channel to remove star from, or channel where the message to remove star from was posted (used with timestamp).
