@@ -1,13 +1,14 @@
+require 'bundler/setup'
 require 'json-schema'
 require 'erubis'
 
 namespace :api do
   desc "update"
-  task :update do
+  task :update, [:api_name] do |task, args|
     Dir.chdir root
     sh "git submodule update --init --recursive"
     sh "git submodule foreach git pull origin master"
-    Rake::Task["api:generate"].execute
+    Rake::Task["api:generate"].execute(args)
     sh "git add lib/slack/endpoint.rb"
     sh "git add lib/slack/endpoint/"
     sh "git add slack-api-docs"
@@ -15,7 +16,7 @@ namespace :api do
   end
 
   desc "Generate"
-  task :generate do
+  task :generate, [:api_name] do |task, args|
     jsons = File.expand_path 'slack-api-docs/methods/*.json', root
     schema_path = File.expand_path "lib/generators/schema.json", root
     schema = JSON.parse(File.read(schema_path))
@@ -28,13 +29,13 @@ namespace :api do
 
       parsed = JSON.parse(File.read(path))
       JSON::Validator.validate(schema, parsed, :insert_defaults => true)
- 
+
       result[prefix][name] = parsed
 
     end
 
-    generate_methods(data)
-    generate_endpoint(data)
+    generate_methods(data, args)
+    generate_endpoint(data, args)
   end
 
   desc "Cleanup"
@@ -46,26 +47,38 @@ namespace :api do
     FileUtils.rm_rf outpath
   end
 
-  def generate_endpoint(data)
+  def generate_endpoint(data, opts)
     templete_path = File.expand_path 'lib/generators/templates/endpoint.rb.erb', root
     templete = Erubis::Eruby.new(File.read(templete_path))
 
     outpath = File.expand_path "lib/slack/endpoint.rb", root
-    FileUtils.rm_rf outpath
-    File.write outpath, templete.result(files: data.keys)
+    included_modules = File.read(outpath).scan(/include (.+)/).flatten.map(&:downcase)
+
+    if opts.api_name
+      if data.keys.include?(opts.api_name) && \
+         !included_modules.include?(opts.api_name)
+        included_modules << opts.api_name
+        FileUtils.rm_rf outpath
+        File.write outpath, templete.result(files: included_modules.sort)
+      end
+    else
+      FileUtils.rm_rf outpath
+      File.write outpath, templete.result(files: data.keys)
+    end
   end
 
-  def generate_methods(data)
+  def generate_methods(data, opts)
     templete_path = File.expand_path 'lib/generators/templates/method.rb.erb', root
     templete = Erubis::Eruby.new(File.read(templete_path))
 
     outdir = File.expand_path "lib/slack/endpoint", root
-    FileUtils.rm_rf outdir
-    FileUtils.mkdir outdir
     data.each_with_index do |(group, names), index|
+      next if opts.api_name && opts.api_name != group
+
       printf "%2d/%2d %10s %s\n", index, data.size, group, names.keys
 
       outpath = File.expand_path "#{group}.rb", outdir
+      File.delete(outpath) if File.exist?(outpath)
       File.write outpath, templete.result(group: group, names: names)
     end
   end
