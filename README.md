@@ -32,7 +32,7 @@ Slack.configure do |config|
   config.token = "YOUR_TOKEN"
 end
 
-Slack.auth_test
+pp Slack.auth_test
 ```
 
 ## Examples
