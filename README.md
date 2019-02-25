@@ -24,6 +24,7 @@ Or install it yourself as:
 [http://www.rubydoc.info/gems/slack-api](http://www.rubydoc.info/gems/slack-api)
 
 ## Usage
+Generate your slack token from [this page](https://api.slack.com/custom-integrations/legacy-tokens).
 
 ```ruby
 require "slack"
