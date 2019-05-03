@@ -24,7 +24,7 @@ module Slack
     private
 
     # Perform an HTTP request
-    def request(method, path, options)
+    def request(method, path, options, full_response: false)
       options = options.merge(token: token)
       response = connection.send(method) do |request|
         case method
@@ -35,7 +35,7 @@ module Slack
           request.body = options unless options.empty?
         end
       end
-      return response.body
+      return full_response ? response : response.body
     end
   end
 end
